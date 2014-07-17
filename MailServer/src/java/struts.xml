@@ -6,5 +6,11 @@
     <include file="example.xml"/>
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
+        <action name="checkLogin" class="app.LoginActionSupport">
+            <result name="admin">admin.jsp</result>
+            <result name="staff">staff.jsp</result>
+            <result name="student">student.jsp</result>
+            <result name="fail">404.jsp</result>
+        </action>
     </package>
 </struts>
