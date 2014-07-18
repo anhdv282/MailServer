@@ -19,7 +19,9 @@ import util.dbUtil;
  * @author DANG
  */
 public class LoginDAO {
+    
     dbUtil util = new dbUtil();
+    
     public boolean checkStudent(String u, String p) {
         boolean check = false;
         String sql = "select * from tblAccount where emailId = ? and pass = ? and roleId = 3";
