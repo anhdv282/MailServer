@@ -12,5 +12,8 @@
             <result name="student">student.jsp</result>
             <result name="fail">404.jsp</result>
         </action>
+        <action name="view" class="app.ViewEventActionSupport">
+            <result name="success">event.jsp</result>
+        </action>
     </package>
 </struts>
