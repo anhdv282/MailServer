@@ -6,6 +6,8 @@
 
 package DAO;
 
+import entities.Account;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,53 +24,32 @@ public class LoginDAO {
     
     dbUtil util = new dbUtil();
     
-    public boolean checkStudent(String u, String p) {
+    public boolean checkLogin(Account account) {
         boolean check = false;
-        String sql = "select * from tblAccount where emailId = ? and pass = ? and roleId = 3";
+        
         try {
-            PreparedStatement stm = util.getConnection().prepareStatement(sql);
-            stm.setString(1, u);
-            stm.setString(2, p);
+            Connection con = util.getConnection();
+            CallableStatement stm = con.prepareCall("{call CheckLogin(?,?)}");            
+            stm.setString(1, account.getEmail());
+            stm.setString(2, account.getPass());
             ResultSet rs = stm.executeQuery();
             check = rs.next();
+            if (check){
+                account.setId(rs.getInt(1));
+                account.setRole(rs.getString(2));
+                account.setName(rs.getString(5));
+                account.setAddress(rs.getString(6));
+                account.setDob(rs.getString(7));
+                account.setPhoto(rs.getString(8));
+                account.setDate(rs.getString(9));
+                account.setStatus(rs.getInt(10));
+            }
             rs.close();
+            con.close();
         } catch (SQLException ex) {
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return check;
     }
     
-    public boolean checkAdmin(String u,String p){
-        boolean result = false;
-        String sql = "SELECT * FROM tblAccount WHERE emailId = ? and pass = ? and roleId = 1";
-        try {
-            PreparedStatement ps = util.getConnection().prepareStatement(sql);
-            ps.setString(1, u);
-            ps.setString(2, p);
-            ResultSet rs = ps.executeQuery();
-            result = rs.next();
-            rs.close();
-            ps.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
-    
-    public boolean checkStaff(String u,String p){
-        boolean result = false;
-        String sql = "SELECT * FROM tblAccount WHERE emailId = ? and pass = ? and roleId = 2";
-        try {
-            PreparedStatement ps = util.getConnection().prepareStatement(sql);
-            ps.setString(1, u);
-            ps.setString(2, p);
-            ResultSet rs = ps.executeQuery();
-            result = rs.next();
-            rs.close();
-            ps.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
 }

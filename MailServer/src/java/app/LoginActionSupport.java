@@ -8,6 +8,7 @@ package app;
 
 import DAO.LoginDAO;
 import com.opensymphony.xwork2.ActionSupport;
+import entities.Account;
 
 /**
  *
@@ -39,18 +40,13 @@ public class LoginActionSupport extends ActionSupport {
     }
     
     public String execute() throws Exception {
-        if(dp.checkStudent(user, pass)){
-            return "student";
+        Account account = new Account();
+        account.setEmail(user);
+        account.setPass(pass);
+        if(dp.checkLogin(account)){
+            return account.getRole();
         }
-        if(dp.checkAdmin(user, pass)){
-            return "admin";
-        }
-        if(dp.checkStaff(user, pass)){
-            return "staff";
-        }
-        else{
-            return "fail";
-        }
+        return "fail";
     }
     
 }

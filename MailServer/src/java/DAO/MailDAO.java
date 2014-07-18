@@ -30,15 +30,15 @@ public class MailDAO {
         try {
             Connection con = util.getConnection();
             CallableStatement stm = con.prepareCall("{call LoadInboxMail(?)}");
-            stm.setInt(1, 1);
+            stm.setInt(1, account.getId());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Mail mail = new Mail();
-                mail.setId(stm.getInt(1));
-                mail.setSubject(stm.getString(2));
-                mail.setContent(stm.getString(3));
-                mail.setDate(stm.getString(4));
-                mail.setStatus(stm.getInt(1));
+                mail.setId(rs.getInt(1));
+                mail.setSubject(rs.getString(2));
+                mail.setContent(rs.getString(3));
+                mail.setDate(rs.getString(4));
+                mail.setStatus(rs.getInt(1));
                 mails.add(mail);
             }
             con.close();
@@ -53,15 +53,15 @@ public class MailDAO {
         try {
             Connection con = util.getConnection();
             CallableStatement stm = con.prepareCall("{call LoadSentMail(?)}");
-            stm.setInt(1, 1);
+            stm.setInt(1, account.getId());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Mail mail = new Mail();
-                mail.setId(stm.getInt(1));
-                mail.setSubject(stm.getString(2));
-                mail.setContent(stm.getString(3));
-                mail.setDate(stm.getString(4));
-                mail.setStatus(stm.getInt(1));
+                mail.setId(rs.getInt(1));
+                mail.setSubject(rs.getString(2));
+                mail.setContent(rs.getString(3));
+                mail.setDate(rs.getString(4));
+                mail.setStatus(rs.getInt(1));
                 mails.add(mail);
             }
             con.close();
