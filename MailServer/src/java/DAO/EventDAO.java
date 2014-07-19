@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.dbUtil;
+import util.DbUtil;
 
 /**
  *
  * @author DANG
  */
 public class EventDAO {
-    dbUtil util = new dbUtil();
+    DbUtil util = new DbUtil();
     public List<Event> ViewEvents(){
         List<Event> lst = new ArrayList<>();
         try {

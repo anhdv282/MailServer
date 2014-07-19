@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.dbUtil;
+import util.DbUtil;
 
 /**
  *
@@ -22,7 +22,7 @@ import util.dbUtil;
  */
 public class LoginDAO {
     
-    dbUtil util = new dbUtil();
+    DbUtil util = new DbUtil();
     
     public boolean checkLogin(Account account) {
         boolean check = false;

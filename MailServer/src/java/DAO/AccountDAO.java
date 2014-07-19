@@ -9,14 +9,14 @@ package DAO;
 import entities.Account;
 import java.util.ArrayList;
 import java.util.List;
-import util.dbUtil;
+import util.DbUtil;
 
 /**
  *
  * @author DucNM
  */
 public class AccountDAO {
-    private dbUtil util = new dbUtil();
+    private DbUtil util = new DbUtil();
     
     public List<Account> getAllStudents() {
         List<Account> accounts = new ArrayList<>();
