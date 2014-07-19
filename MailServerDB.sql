@@ -1,6 +1,7 @@
 create database MailServerDB
 use MailServerDB
 drop database MailServerDB
+
 create table tblEvent
 (
 	eventId int primary key identity (1,1),
@@ -26,11 +27,34 @@ create table tblFeedback
 	created date default getdate()
 )
 
-create table tblAccount
+create table tblStudent
 (
-	accId int primary key identity (1,1),
-	roleId int foreign key references tblRole(roleId),
-	emailId nvarchar(100) unique,
+	studentId int primary key identity(1,1),
+	accId int foreign key references tblAccount(accId),
+	name nvarchar(100),
+	[address] nvarchar(max),
+	dob date,
+	photo nvarchar(max),
+	created date default getdate(),
+	[status] int default 1
+)
+
+create table tblStaff
+(
+	staffId int primary key identity(1,1),
+	accId int foreign key references tblAccount(accId),
+	name nvarchar(100),
+	[address] nvarchar(max),
+	dob date,
+	photo nvarchar(max),
+	created date default getdate(),
+	[status] int default 1
+)
+
+create table tblAdmin
+(
+	adminId int primary key identity(1,1),
+	username nvarchar(100) unique,
 	pass nvarchar(100) not null,
 	name nvarchar(100),
 	[address] nvarchar(max),
@@ -38,6 +62,14 @@ create table tblAccount
 	photo nvarchar(max),
 	created date default getdate(),
 	[status] int default 1
+)
+
+create table tblAccount
+(
+	accId int primary key identity(1,1),
+	roleId int foreign key references tblRole(roleId),
+	emailId nvarchar(100) unique,
+	pass nvarchar(100) not null,
 )
 
 create table tblMail
@@ -61,13 +93,13 @@ create table tblCourse
 (
 	courseId int primary key identity (1,1),
 	courseName nvarchar(100) unique,
-	teacherId int foreign key references tblAccount(accId)
+	teacherId int foreign key references tblStaff(staffId)
 )
 
 create table tblCourseStudent
 (
 	courseId int foreign key references tblCourse(courseId),
-	studentId int foreign key references tblAccount(accId),
+	studentId int foreign key references tblStudent(studentId),
 	primary key (courseId, studentId)
 )
 
@@ -123,10 +155,48 @@ VALUES ('After a solid iOS developer?','Viet Anh','Nam sollicitudin consectetur 
 ('Indie iPhone app marketing','Minh Duc','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event9','2014-07-18')
 
 go
+
 create proc LoadEvents
 as
-select * from tblEvent
+select E.eventId, E.title, E.author, E.content, E.photo, E.created
+from tblEvent as E
 order by created desc
+
+go
+
+create proc AddNewEvent
+@title nvarchar(max),
+@author nvarchar(100),
+@content nvarchar(max),
+@photo nvarchar(max)
+as
+insert tblEvent(title, author, content, photo) values (@title, @author, @content, @photo)
+return @@IDENTITY
+
+go
+
+create proc UpdateEvent
+@eventId int,
+@title nvarchar(max),
+@author nvarchar(100),
+@content nvarchar(max),
+@photo nvarchar(max)
+as
+update tblEvent
+set title = @title,
+	author = @author,
+	content = @content,
+	photo = @photo
+where eventId = @eventId
+
+go
+
+create proc DeleteEvent
+@eventId int
+as
+delete tblEvent
+where eventId = @eventId
+
 go
 
 create proc CheckLogin

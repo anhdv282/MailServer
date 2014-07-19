@@ -162,7 +162,7 @@
                                     <p>
                                         <s:property value="#p.content"/>
                                     </p>
-                                    <s:property value="#p.created"/>
+                                    <s:property value="#p.date"/>
                                 </div><!-- /.box-body -->
                             </div><!-- /.box -->
                         </div><!-- /.col -->

@@ -25,7 +25,7 @@ public class DateUtil {
     }
     
     public static String getDateConvert(java.util.Date date) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         String dateConvert = dateFormat.format(date.getTime());
         return dateConvert;
     }

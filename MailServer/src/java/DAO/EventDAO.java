@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import util.DateUtil;
 import util.DbUtil;
 
 /**
@@ -22,7 +23,9 @@ import util.DbUtil;
  * @author DANG
  */
 public class EventDAO {
+    
     DbUtil util = new DbUtil();
+    
     public List<Event> ViewEvents(){
         List<Event> lst = new ArrayList<>();
         try {
@@ -30,15 +33,53 @@ public class EventDAO {
             CallableStatement stm = conn.prepareCall("{call LoadEvents}");
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
-                Event event = new Event(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+                Event event = new Event();
+                event.setEventId(rs.getInt(1));
+                event.setTitle(rs.getString(2));
+                event.setAuthor(rs.getString(3));
+                event.setContent(rs.getString(4));
+                event.setPhoto(rs.getString(5));
+                event.setDate(DateUtil.getDateConvert(rs.getDate(6)));
                 lst.add(event);
             }
-            
             conn.close();
             
         } catch (SQLException ex) {
             Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lst;
+    }
+    
+    public boolean addEvent(Event event) {
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call ? = AddNewEvent(?,?,?,?)}");
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean updateEvent(Event event) {
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call UpdateEvent(?,?,?,?,?)}");
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean deleteEvent(Event event) {
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call DeleteEvents(?)}");
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }
