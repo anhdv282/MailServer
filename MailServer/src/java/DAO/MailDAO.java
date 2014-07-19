@@ -23,7 +23,7 @@ import util.DbUtil;
  * @author DucNM
  */
 public class MailDAO {
-    DbUtil util = new DbUtil();
+    private DbUtil util = new DbUtil();
     
     public List<Mail> loadInbox(Account account) {
         List<Mail> mails = new ArrayList<>();

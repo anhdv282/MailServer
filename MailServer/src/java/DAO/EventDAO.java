@@ -22,7 +22,8 @@ import util.DbUtil;
  * @author DANG
  */
 public class EventDAO {
-    DbUtil util = new DbUtil();
+    private DbUtil util = new DbUtil();
+    
     public List<Event> ViewEvents(){
         List<Event> lst = new ArrayList<>();
         try {

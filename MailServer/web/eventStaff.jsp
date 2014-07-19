@@ -1,6 +1,6 @@
 <%-- 
-    Document   : event
-    Created on : Jul 17, 2014, 12:42:03 PM
+    Document   : homeStaff
+    Created on : Jul 19, 2014, 10:37:01 AM
     Author     : DANG
 --%>
 
@@ -82,7 +82,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="active">
+                        <li>
                             <a href="#">
                                 <i class="glyphicon glyphicon-calendar"></i> <span>Events</span>
                             </a>
@@ -100,7 +100,7 @@
                             </a>
                         </li>
                         
-                        <li>
+                        <li class="active">
                             <a href="#">
                                 <i class="glyphicon glyphicon-user"></i> <span>Staffs</span>                                
                             </a>
@@ -140,34 +140,34 @@
                 <!-- Main content -->
                 <section class="content">
 
-                    <!-- Small boxes (Stat box) -->
-                    
-                    <h4 class="page-header">
-                        Welcome to Stark Institute
-                        <small>Photo</small>
-                    </h4>
-                    <!-- Solid boxes -->
-                    <div class="row">
-                        <s:iterator var="p" value="lst">
-                        
-                        <div class="col-md-4">
-                            <!-- Danger box -->
-                            <div class="box box-solid box-danger">
-                                <div class="box-header">
-                                    <h3 class="box-title"><s:property value="#p.title"/></h3>
-                                    
-                                </div>
-                                <div class="box-body">
-                                    Author: <code><s:property value="#p.author"/></code>
-                                    <p>
-                                        <s:property value="#p.content"/>
-                                    </p>
-                                    <s:property value="#p.date"/>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div><!-- /.col -->
-                        </s:iterator>
-                    </div>
+                   <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">List of Staff</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>DOB</th>
+                                        <th>Photo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Trident</td>
+                                        <td>Internet
+                                            Explorer 4.0</td>
+                                        <td>Win 95+</td>
+                                        <td> 4</td>
+                                        <td>X</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
                     
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
@@ -212,3 +212,4 @@
 
     </body>
 </html>
+
