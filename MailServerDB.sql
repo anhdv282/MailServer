@@ -1,6 +1,6 @@
 create database MailServerDB
 use MailServerDB
-
+drop database MailServerDB
 create table tblEvent
 (
 	eventId int primary key identity (1,1),
@@ -77,19 +77,50 @@ INSERT INTO tblAccount(roleId,emailID,pass,name,[address],dob,photo,[status])
 VALUES (1,'admin@fpt.com','admin','Administrator','Ha Noi','1990-02-28','avatar',1),
 (2,'staff1@fpt.com','123456','Staff1','Hai Phong','1989-01-14','avatar2',1),
 (2,'staff2@fpt.com','123456','Staff2','Ho Chi Minh','1988-09-28','avatar3',0),
+(2,'staff3@fpt.com','123456','Staff3','Da Nang','1989-01-14','avatar2',1),
+(2,'staff4@fpt.com','123456','Staff4','Ha Noi','1988-09-28','avatar3',1),
+(2,'staff5@fpt.com','123456','Staff5','Ho Chi Minh','1988-09-28','avatar3',1),
+(2,'staff6@fpt.com','123456','Staff6','Da Nang','1989-01-14','avatar2',1),
 (3,'student1@fpt.com','123456','Student1','Ha Noi','1993-04-25','avatar04',1),
-(3,'student2@fpt.com','123456','Student2','Da Nang','1994-07-24','avatar5',0)
+(3,'student2@fpt.com','123456','Student2','Da Nang','1994-07-24','avatar5',1),
+(3,'student3@fpt.com','123456','Student3','Ha Noi','1992-03-25','avatar04',1),
+(3,'student4@fpt.com','123456','Student4','Ho Chi Minh','1991-07-24','avatar5',1),
+(3,'student5@fpt.com','123456','Student5','Ha Noi','1993-04-25','avatar04',1),
+(3,'student6@fpt.com','123456','Student6','Da Nang','1994-07-24','avatar5',1),
+(3,'student7@fpt.com','123456','Student7','Ha Noi','1996-04-25','avatar04',1),
+(3,'student8@fpt.com','123456','Student8','Ho Chi Minh','1990-07-24','avatar5',1),
+(3,'student9@fpt.com','123456','Student9','Ha Noi','1993-04-25','avatar04',1),
+(3,'student10@fpt.com','123456','Student10','Da Nang','1994-07-24','avatar2',1),
+(3,'student11@fpt.com','123456','Student11','Ha Noi','1996-04-25','avatar04',1),
+(3,'student12@fpt.com','123456','Student12','Da Nang','1990-06-24','avatar5',1),
+(3,'student13@fpt.com','123456','Student13','Ha Noi','1993-04-25','avatar04',1),
+(3,'student14@fpt.com','123456','Student14','Ho Chi Minh','1992-07-24','avatar5',1),
+(3,'student15@fpt.com','123456','Student15','Da Nang','1994-07-24','avatar5',1),
+(3,'student16@fpt.com','123456','Student16','Ha Noi','1991-04-25','avatar3',1),
+(3,'student17@fpt.com','123456','Student17','Da Nang','1994-07-24','avatar5',1),
+(3,'student18@fpt.com','123456','Student18','Ha Noi','1993-04-25','avatar04',1),
+(3,'student19@fpt.com','123456','Student19','Ho Chi Minh','1992-03-24','avatar2',1),
+(3,'student20@fpt.com','123456','Student20','Da Nang','1994-02-24','avatar5',1),
+(3,'student21@fpt.com','123456','Student21','Ha Noi','1993-04-25','avatar04',1),
+(3,'student22@fpt.com','123456','Student22','Da Nang','1990-07-24','avatar3',1),
+(3,'student23@fpt.com','123456','Student23','Ha Noi','1993-04-25','avatar04',1),
+(3,'student24@fpt.com','123456','Student24','Ho Chi Minh','1994-07-24','avatar5',1),
+(3,'student25@fpt.com','123456','Student25','Da Nang','1990-07-24','avatar5',1),
+(3,'student26@fpt.com','123456','Student26','Ha Noi','1993-04-25','avatar04',1),
+(3,'student27@fpt.com','123456','Student27','Ho Chi Minh','1994-07-24','avatar5',1),
+(3,'student28@fpt.com','123456','Student28','Ha Noi','1990-04-25','avatar',1),
+(3,'student29@fpt.com','123456','Student29','Da Nang','1994-07-24','avatar5',1)
 
 INSERT INTO tblEvent(title,author,content,photo,created)
-VALUES ('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event1','2014-07-10'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event2','2014-07-11'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event3','2014-07-12'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event4','2014-07-13'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event5','2014-07-14'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event6','2014-07-15'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event7','2014-07-16'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event8','2014-07-17'),
-('Lorem ipsum dolor sit amet','Lorem ipsum dolor','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event9','2014-07-18')
+VALUES ('After a solid iOS developer?','Viet Anh','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event1','2014-07-10'),
+('House finished','Viet Em','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event2','2014-07-11'),
+('WebP decoding on iOS','Dang Anh','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event3','2014-07-12'),
+('Moving on again','To Hoai','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event4','2014-07-13'),
+('Skeleton Key Cocoaheads presentation','Kim Dung','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event5','2014-07-14'),
+('Another app marketing idea','Duong Qua','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event6','2014-07-15'),
+('Promoting apps presentation slides','Doan Du','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event7','2014-07-16'),
+('The Finishing Line','Long Nu','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event8','2014-07-17'),
+('Indie iPhone app marketing','Minh Duc','Nam sollicitudin consectetur ante a pharetra. Aliquam sit amet lorem vitae tortor volutpat iaculis in sed erat. Sed a magna tortor, sit amet dapibus mi. Sed dictum volutpat dictum. Cras rhoncus ultrices lobortis. Pellentesque quis mauris et neque egestas mattis. Nunc congue dapibus lacus. Pellentesque aliquet suscipit pharetra. In dictum, nibh non mattis dapibus, purus sapien vulputate felis, at fermentum arcu dolor in ligula. Etiam adipiscing leo lacinia augue tincidunt eget porta mi bibendum.','event9','2014-07-18')
 
 go
 
