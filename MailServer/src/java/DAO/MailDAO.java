@@ -75,17 +75,30 @@ public class MailDAO {
         try {
             Connection con = util.getConnection();
             CallableStatement stm = con.prepareCall("{? = call InsertMail(?,?)}");
+            stm.setString(1, mail.getSubject());
+            stm.setString(1, mail.getContent());
+            stm.executeUpdate();
             con.close();
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
     
-    public void sendMail(Mail mail, List<Account> accounts) {
+    public void sendMail(Mail mail) {
         try {
             Connection con = util.getConnection();
+            con.setAutoCommit(false);
             CallableStatement stm = con.prepareCall("{call SendMail(?,?,?)}");
+            for (Account a : mail.getReceivers()) {
+                stm.setInt(1, mail.getId());
+                stm.setInt(2, mail.getSender().getId());
+                stm.setInt(3, a.getId());
+                stm.addBatch();
+            }
+            stm.executeBatch();
+            con.commit();
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
