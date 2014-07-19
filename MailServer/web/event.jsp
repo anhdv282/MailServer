@@ -141,24 +141,33 @@
                 <section class="content">
 
                     <!-- Small boxes (Stat box) -->
-                    <table>
-                        <tr>
-                            <td>Title</td>
-                            <td>Author</td>
-                            <td>Content</td>
-                            <td>Photo</td>
-                            <td>Created</td>
-                        </tr>
+                    
+                    <h4 class="page-header">
+                        Welcome to Stark Institute
+                        <small>Photo</small>
+                    </h4>
+                    <!-- Solid boxes -->
+                    <div class="row">
                         <s:iterator var="p" value="lst">
-                            <tr>
-                                <td><s:property value="#p.title"/></td>
-                                <td><s:property value="#p.author"/></td>
-                                <td><s:property value="#p.content"/></td>
-                                <td><s:property value="#p.photo"/></td>
-                                <td><s:property value="#p.created"/></td>
-                            </tr>
+                        
+                        <div class="col-md-4">
+                            <!-- Danger box -->
+                            <div class="box box-solid box-danger">
+                                <div class="box-header">
+                                    <h3 class="box-title"><s:property value="#p.title"/></h3>
+                                    
+                                </div>
+                                <div class="box-body">
+                                    Author: <code><s:property value="#p.author"/></code>
+                                    <p>
+                                        <s:property value="#p.content"/>
+                                    </p>
+                                    <s:property value="#p.created"/>
+                                </div><!-- /.box-body -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col -->
                         </s:iterator>
-                    </table>
+                    </div>
                     
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->

@@ -117,5 +117,10 @@ public class Account {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return this.name; //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -15,5 +15,8 @@
         <action name="view" class="app.ViewEventActionSupport">
             <result name="success">event.jsp</result>
         </action>
+        <action name="Logout" class="app.LogoutActionSupport">
+            <result name="success">home.jsp</result>
+        </action>
     </package>
 </struts>

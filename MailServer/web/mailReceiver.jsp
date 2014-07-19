@@ -1,10 +1,10 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%-- 
     Document   : staff
     Created on : Jul 16, 2014, 8:35:43 PM
     Author     : DANG
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -140,14 +140,14 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span><%=session.getAttribute("User").toString()%><i class="caret"></i></span>
+                                <span>Viet Anh<i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
                                     <img src="img/avatar04.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        <%=session.getAttribute("User").toString()%> 
+                                        Viet Anh 
                                         <small>Staff</small>
                                     </p>
                                 </li>
@@ -159,7 +159,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="<%= request.getContextPath() %>/Logout.action" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -179,7 +179,7 @@
                             <img src="img/avatar04.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, <%=session.getAttribute("User").toString()%></p>
+                            <p>Hello, Viet Anh</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -203,7 +203,7 @@
                         </li>
                         
                         <li>
-                            <a href="mailReceiver.jsp">
+                            <a href="pages/mailbox.html">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
@@ -217,48 +217,172 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        Home
-                        <small>Courses</small>
+                <section class="content-header no-margin">
+                    <h1 class="text-center">
+                        Mailbox
                     </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Courses</li>
-                    </ol>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
+                    <!-- MAILBOX BEGIN -->
+                    <div class="mailbox row">
+                        <div class="col-xs-12">
+                            <div class="box box-solid">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                            <!-- BOXES are complex enough to move the .box-header around.
+                                                 This is an example of having the box header within the box body -->
+                                            <div class="box-header">
+                                                <i class="fa fa-inbox"></i>
+                                                <h3 class="box-title">INBOX</h3>
+                                            </div>
+                                            <!-- compose message btn -->
+                                            <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
+                                            <!-- Navigation - folders-->
+                                            <div style="margin-top: 15px;">
+                                                <ul class="nav nav-pills nav-stacked">
+                                                    <li class="header">Folders</li>
+                                                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox (14)</a></li>
+                                                    <li><a href="#"><i class="fa fa-pencil-square-o"></i> Drafts</a></li>
+                                                    <li><a href="#"><i class="fa fa-mail-forward"></i> Sent</a></li>
+                                                    <li><a href="#"><i class="fa fa-star"></i> Starred</a></li>
+                                                    <li><a href="#"><i class="fa fa-folder"></i> Junk</a></li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- /.col (LEFT) -->
+                                        <div class="col-md-9 col-sm-8">
+                                            <div class="row pad">
+                                                <div class="col-sm-6">
+                                                    <label style="margin-right: 10px;">
+                                                        <input type="checkbox" id="check-all"/>
+                                                    </label>
+                                                    <!-- Action button -->
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default btn-sm btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                            Action <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#">Mark as read</a></li>
+                                                            <li><a href="#">Mark as unread</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Move to junk</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Delete</a></li>
+                                                        </ul>
+                                                    </div>
 
-                    <!-- Small boxes (Stat box) -->
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <i class="fa fa-envelope"></i>
-                            <h3 class="box-title">Quick Email</h3>
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                                <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-                            </div><!-- /. tools -->
-                        </div>
-                        <div class="box-body">
-                            <form action="#" method="post">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" name="emailto" placeholder="Email to:" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject" />
-                                </div>
-                                <div>
-                                    <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="box-footer clearfix">
-                            <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
-                        </div>
+                                                </div>
+                                                <div class="col-sm-6 search-form">
+                                                    <form action="#" class="text-right">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control input-sm" placeholder="Search">
+                                                            <div class="input-group-btn">
+                                                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.row -->
+
+                                            <div class="table-responsive">
+                                                <!-- THE MESSAGES -->
+                                                <table class="table table-mailbox">
+                                                    <tr class="unread">
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr class="unread">
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr class="unread">
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr class="unread">
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="small-col"><input type="checkbox" /></td>
+                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
+                                                        <td class="name"><a href="#">John Doe</a></td>
+                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
+                                                        <td class="time">12:30 PM</td>
+                                                    </tr>
+                                                </table>
+                                            </div><!-- /.table-responsive -->
+                                        </div><!-- /.col (RIGHT) -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.box-body -->
+                                <div class="box-footer clearfix">
+                                    <div class="pull-right">
+                                        <small>Showing 1-12/1,240</small>
+                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
+                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-right"></i></button>
+                                    </div>
+                                </div><!-- box-footer -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col (MAIN) -->
                     </div>
-                    
+                    <!-- MAILBOX END -->
+
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -302,3 +426,4 @@
 
     </body>
 </html>
+
