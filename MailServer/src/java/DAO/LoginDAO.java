@@ -23,7 +23,7 @@ import util.DbUtil;
  */
 public class LoginDAO {
     
-    DbUtil util = new DbUtil();
+    private DbUtil util = new DbUtil();
     
     public boolean checkLogin(Account account) {
         boolean check = false;
