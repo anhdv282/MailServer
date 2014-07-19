@@ -16,14 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.dbUtil;
+import util.DbUtil;
 
 /**
  *
  * @author DucNM
  */
 public class MailDAO {
-    dbUtil util = new dbUtil();
+    DbUtil util = new DbUtil();
     
     public List<Mail> loadInbox(Account account) {
         List<Mail> mails = new ArrayList<>();

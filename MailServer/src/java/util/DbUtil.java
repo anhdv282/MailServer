@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author DANG
  */
-public class dbUtil {
+public class DbUtil {
     public Connection getConnection() {
         Connection conn = null;
         try {
@@ -26,9 +26,9 @@ public class dbUtil {
             String url = "jdbc:sqlserver://127.0.0.1:1433;databaseName=MailServerDB";
             conn = DriverManager.getConnection(url, user, pass);
         } catch (SQLException ex) {
-            Logger.getLogger(dbUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(dbUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DbUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
         return conn;
     }
