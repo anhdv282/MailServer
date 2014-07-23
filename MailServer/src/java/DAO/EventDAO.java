@@ -11,6 +11,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -53,7 +54,16 @@ public class EventDAO {
     public boolean addEvent(Event event) {
         try {
             Connection conn = util.getConnection();
-            CallableStatement stm = conn.prepareCall("{call ? = AddNewEvent(?,?,?,?)}");
+//            CallableStatement stm = conn.prepareCall("AddNewEvent(?,?,?,?)");
+            CallableStatement stm = conn.prepareCall("{? = call AddNewEvent(?,?,?,?)}");
+            stm.registerOutParameter(1, Types.INTEGER);
+            stm.setString(2, event.getTitle());
+            stm.setString(3, event.getAuthor());
+            stm.setString(4, event.getContent());
+            stm.setString(5, event.getPhoto());
+            stm.executeUpdate();
+            event.setEventId(stm.getInt(1));
+            conn.close();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,6 +75,13 @@ public class EventDAO {
         try {
             Connection conn = util.getConnection();
             CallableStatement stm = conn.prepareCall("{call UpdateEvent(?,?,?,?,?)}");
+            stm.setInt(1, event.getEventId());
+            stm.setString(2, event.getTitle());
+            stm.setString(3, event.getAuthor());
+            stm.setString(4, event.getContent());
+            stm.setString(5, event.getPhoto());
+            stm.executeUpdate();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,6 +93,9 @@ public class EventDAO {
         try {
             Connection conn = util.getConnection();
             CallableStatement stm = conn.prepareCall("{call DeleteEvents(?)}");
+            stm.setInt(1, event.getEventId());
+            stm.executeUpdate();
+            conn.close();
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);

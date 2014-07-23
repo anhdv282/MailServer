@@ -2,6 +2,14 @@ create database MailServerDB
 use MailServerDB
 drop database MailServerDB
 
+create table tblAccount
+(
+	accId int primary key identity(1,1),
+	roleId int foreign key references tblRole(roleId),
+	emailId nvarchar(100) unique,
+	pass nvarchar(100) not null,
+)
+
 create table tblEvent
 (
 	eventId int primary key identity (1,1),
@@ -64,13 +72,7 @@ create table tblAdmin
 	[status] int default 1
 )
 
-create table tblAccount
-(
-	accId int primary key identity(1,1),
-	roleId int foreign key references tblRole(roleId),
-	emailId nvarchar(100) unique,
-	pass nvarchar(100) not null,
-)
+
 
 create table tblMail
 (
