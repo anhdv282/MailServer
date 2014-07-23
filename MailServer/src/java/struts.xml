@@ -18,9 +18,10 @@
         <action name="Logout" class="app.LogoutActionSupport">
             <result name="success">home.jsp</result>
         </action>
-        <action name="addEvent" class="app.AddEventActionSupport">
-            <result name="success">home.jsp</result>
+        <action name="SendMail" class="app.MailActionSupport">
+            <result name="input">sendmail.jsp</result>
             <result name="fail">404.jsp</result>
+            <result name="success">inbox.jsp</result>
         </action>
     </package>
 </struts>

@@ -8,10 +8,12 @@ package DAO;
 
 import entities.Account;
 import entities.Mail;
+import entities.Student;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,7 +32,7 @@ public class MailDAO {
         try {
             Connection con = util.getConnection();
             CallableStatement stm = con.prepareCall("{call LoadInboxMail(?)}");
-            stm.setInt(1, account.getId());
+            stm.setString(1, account.getEmail());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Mail mail = new Mail();
@@ -53,7 +55,7 @@ public class MailDAO {
         try {
             Connection con = util.getConnection();
             CallableStatement stm = con.prepareCall("{call LoadSentMail(?)}");
-            stm.setInt(1, account.getId());
+            stm.setString(1, account.getEmail());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Mail mail = new Mail();
@@ -74,10 +76,13 @@ public class MailDAO {
     public boolean composeMail(Mail mail) {
         try {
             Connection con = util.getConnection();
-            CallableStatement stm = con.prepareCall("{? = call InsertMail(?,?)}");
-            stm.setString(1, mail.getSubject());
-            stm.setString(1, mail.getContent());
+            CallableStatement stm = con.prepareCall("{? = call InsertMail(?,?,?)}");
+            stm.registerOutParameter(1, Types.INTEGER);
+            stm.setString(2, mail.getSender().getEmail());
+            stm.setString(3, mail.getSubject());
+            stm.setString(4, mail.getContent());
             stm.executeUpdate();
+            mail.setId(stm.getInt(1));
             con.close();
             return true;
         } catch (SQLException ex) {
@@ -90,11 +95,10 @@ public class MailDAO {
         try {
             Connection con = util.getConnection();
             con.setAutoCommit(false);
-            CallableStatement stm = con.prepareCall("{call SendMail(?,?,?)}");
+            CallableStatement stm = con.prepareCall("{call SendMail(?,?)}");
             for (Account a : mail.getReceivers()) {
                 stm.setInt(1, mail.getId());
-                stm.setInt(2, mail.getSender().getId());
-                stm.setInt(3, a.getId());
+                stm.setString(2, a.getEmail());
                 stm.addBatch();
             }
             stm.executeBatch();

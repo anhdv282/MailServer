@@ -32,14 +32,6 @@ public class AccountDAO {
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 Account account = new Account();
-                account.setId(rs.getInt(1));
-                account.setRole(rs.getString(2));
-                account.setName(rs.getString(5));
-                account.setAddress(rs.getString(6));
-                account.setDob(rs.getString(7));
-                account.setPhoto(rs.getString(8));
-                account.setDate(rs.getString(9));
-                account.setStatus(rs.getInt(10));
                 accounts.add(account);
             }
             conn.close();
@@ -57,14 +49,6 @@ public class AccountDAO {
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 Account account = new Account();
-                account.setId(rs.getInt(1));
-                account.setRole(rs.getString(2));
-                account.setName(rs.getString(5));
-                account.setAddress(rs.getString(6));
-                account.setDob(rs.getString(7));
-                account.setPhoto(rs.getString(8));
-                account.setDate(rs.getString(9));
-                account.setStatus(rs.getInt(10));
                 accounts.add(account);
             }
             conn.close();

@@ -36,13 +36,6 @@ public class LoginDAO {
             ResultSet rs = stm.executeQuery();
             check = rs.next();
             if (check){
-                account.setId(rs.getInt(1));
-                account.setRole(rs.getString(2));
-                account.setName(rs.getString(5));
-                account.setAddress(rs.getString(6));
-                account.setDob(rs.getString(7));
-                account.setPhoto(rs.getString(8));
-                account.setDate(rs.getString(9));
                 account.setStatus(rs.getInt(10));
             }
             rs.close();
