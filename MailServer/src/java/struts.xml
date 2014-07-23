@@ -23,5 +23,9 @@
             <result name="fail">404.jsp</result>
             <result name="success">inbox.jsp</result>
         </action>
+        <action name="addEvent" class="app.AddEventActionSupport">
+            <result name="success">home.jsp</result>
+            <result name="fail">404.jsp</result>
+        </action>
     </package>
 </struts>

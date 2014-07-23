@@ -172,7 +172,7 @@ set title = @title,
 where eventId = @eventId
 
 go
-
+--ongoing
 create proc DeleteEvent
 @eventId int
 as
@@ -180,7 +180,7 @@ delete tblEvent
 where eventId = @eventId
 
 go
-
+--check?
 create proc CheckLogin
 @emailId nvarchar(100),
 @pass nvarchar(100)
@@ -283,3 +283,5 @@ on R.roleId = A.roleId)
 as AR  join Course as C
 on AR.accId = C.studentId
 where C.courseId = @courseId
+
+select * from tblMail
