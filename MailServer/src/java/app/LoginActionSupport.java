@@ -7,20 +7,18 @@
 package app;
 
 import DAO.LoginDAO;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entities.Account;
 import java.util.Map;
-import org.apache.struts2.interceptor.SessionAware;
 /**
  *
  * @author DANG
  */
-public class LoginActionSupport extends ActionSupport implements SessionAware{
+public class LoginActionSupport extends ActionSupport {
     
     String user;
     String pass;
-    LoginDAO dp = new LoginDAO();
-    Account account = new Account();
     
     public String getUser() {
         return user;
@@ -42,23 +40,18 @@ public class LoginActionSupport extends ActionSupport implements SessionAware{
     }
     
     public String execute() throws Exception {
-        
+        Account account = new Account();
         account.setEmail(user);
         account.setPass(pass);
-        
-        if(dp.checkLogin(account)){
+        LoginDAO loginDAO = new LoginDAO();
+        if(loginDAO.checkLogin(account)){
+            Map session = ActionContext.getContext().getSession();
             session.put("User", account);
-            return account.getRole();
+            return account.getAccType();
         }
         return "fail";
     }
     
-    Map<String,Object> session ;
-    @Override
-    public void setSession(Map<String, Object> map) {
-        this.session = map;
-    }
-
     @Override
     public void validate() {
         if(getUser().length() == 0){

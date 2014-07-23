@@ -11,39 +11,22 @@ package entities;
  * @author DucNM
  */
 public class Account {
-    private int id;
+    
     private String email;
-    private String role;
     private String pass;
-    private String name;
-    private String address;
-    private String dob;
-    private String photo;
-    private String date;
+    private String accType;
+    private boolean changePass;
     private int status;
 
     public Account() {
     }
 
-    public Account(int id, String email, String role, String pass, String name, String address, String dob, String photo, String date, int status) {
-        this.id = id;
+    public Account(String email, String pass, String accType, boolean changePass, int status) {
         this.email = email;
-        this.role = role;
         this.pass = pass;
-        this.name = name;
-        this.address = address;
-        this.dob = dob;
-        this.photo = photo;
-        this.date = date;
+        this.accType = accType;
+        this.changePass = changePass;
         this.status = status;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getEmail() {
@@ -54,14 +37,6 @@ public class Account {
         this.email = email;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
     public String getPass() {
         return pass;
     }
@@ -70,44 +45,20 @@ public class Account {
         this.pass = pass;
     }
 
-    public String getName() {
-        return name;
+    public String getAccType() {
+        return accType;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAccType(String accType) {
+        this.accType = accType;
     }
 
-    public String getAddress() {
-        return address;
+    public boolean isChangePass() {
+        return changePass;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
-    }
-
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    public void setChangePass(boolean changePass) {
+        this.changePass = changePass;
     }
 
     public int getStatus() {
@@ -117,10 +68,8 @@ public class Account {
     public void setStatus(int status) {
         this.status = status;
     }
-
-    @Override
-    public String toString() {
-        return this.name; //To change body of generated methods, choose Tools | Templates.
-    }
     
+    public boolean login(String email, String pass) {
+        return false;
+    }
 }
