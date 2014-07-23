@@ -66,11 +66,11 @@ create table tblMail
 	[status] int default 1
 )
 
-create table tblAccountMail
+create table tblMailDetail
 (
+	detailId int primary key identity (1,1),
 	mailId int foreign key references tblMail(mailId),
-	receiverId nvarchar(100) foreign key references tblAccount(emailId),
-	primary key (mailId, receiverId)
+	receiverId nvarchar(100)
 )
 
 create table tblCourse
@@ -180,11 +180,14 @@ delete tblEvent
 where eventId = @eventId
 
 go
---check?
+
 create proc CheckLogin
 @emailId nvarchar(100),
 @pass nvarchar(100)
 as
+select A.emailId, A.pass, A.accType, A.changePass, A.[status]
+from tblAccount as A
+where A.[status] = 1
 
 go
 
@@ -209,11 +212,11 @@ go
 create proc LoadSentMail
 @senderId nvarchar(100)
 as
-select tblAccountMail.mailId, [subject], content, created, [status]
-from tblAccountMail join tblMail 
-on tblAccountMail.mailId = tblMail.mailId
-where senderId = @senderId
-group by tblAccountMail.mailId, [subject], content, created, [status]
+select MD.mailId, M.[subject], M.content, M.created, M.[status]
+from tblMailDetail as MD join tblMail as M
+on MD.mailId = M.mailId
+where M.senderId = @senderId
+group by MD.mailId, M.[subject], M.content, M.created, M.[status]
 order by created desc
 
 go
@@ -221,11 +224,11 @@ go
 create proc LoadInboxMail
 @receiverId nvarchar(100)
 as
-select tblAccountMail.mailId, [subject], content , created, [status]
-from tblAccountMail join tblMail 
-on tblAccountMail.mailId = tblMail.mailId
-where receiverId = @receiverId
-group by tblAccountMail.mailId, [subject], content, created, [status]
+select MD.mailId, M.[subject], M.content, M.created, M.[status]
+from tblMailDetail as MD join tblMail as M
+on MD.mailId = M.mailId
+where MD.receiverId = @receiverId
+group by MD.mailId, M.[subject], M.content, M.created, M.[status]
 order by created desc
 
 go

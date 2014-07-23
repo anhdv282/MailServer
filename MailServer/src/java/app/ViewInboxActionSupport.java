@@ -8,6 +8,7 @@ package app;
 
 import DAO.MailDAO;
 import com.opensymphony.xwork2.ActionSupport;
+import entities.Account;
 import entities.Mail;
 import java.util.List;
 
@@ -16,22 +17,25 @@ import java.util.List;
  * @author DANG
  */
 public class ViewInboxActionSupport extends ActionSupport {
-    private List<Mail> lst;
+    
+    private List<Mail> mails;
 
-    public List<Mail> getLst() {
-        MailDAO mailDAO = new MailDAO();
-        lst = mailDAO.loadInbox(null);
-        return lst;
+    public List<Mail> getMails() {
+        return mails;
     }
 
-    public void setLst(List<Mail> lst) {
-        this.lst = lst;
+    public void setMails(List<Mail> mails) {
+        this.mails = mails;
     }
     
     public ViewInboxActionSupport() {
     }
     
     public String execute() throws Exception {
+        Account account = new Account();
+        account.setEmail("staff1@fpt.com");
+        MailDAO mailDAO = new MailDAO();
+        mails = mailDAO.loadInbox(account);
         return "success";
     }
     
