@@ -68,8 +68,9 @@ public class Account {
     public void setStatus(int status) {
         this.status = status;
     }
-    
-    public boolean login(String email, String pass) {
-        return false;
+
+    @Override
+    public String toString() {
+        return this.email;
     }
 }

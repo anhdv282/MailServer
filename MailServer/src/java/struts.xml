@@ -7,16 +7,16 @@
     <!-- Configuration for the default package. -->
     <package name="default" extends="struts-default">
         <action name="checkLogin" class="app.LoginActionSupport">
-            <result name="admin">admin.jsp</result>
-            <result name="staff">staff.jsp</result>
-            <result name="student">student.jsp</result>
+            <result name="admin" type="redirect">admin.jsp</result>
+            <result name="staff" type="redirect">staff.jsp</result>
+            <result name="student" type="redirect">student.jsp</result>
             <result name="fail">404.jsp</result>
         </action>
         <action name="view" class="app.ViewEventActionSupport">
             <result name="success">event.jsp</result>
         </action>
         <action name="Logout" class="app.LogoutActionSupport">
-            <result name="success">home.jsp</result>
+            <result name="success" type="redirect">home.jsp</result>
         </action>
         <action name="SendMail" class="app.MailActionSupport">
             <result name="input">sendmail.jsp</result>

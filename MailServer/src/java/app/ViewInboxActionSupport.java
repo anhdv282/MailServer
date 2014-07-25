@@ -7,10 +7,12 @@
 package app;
 
 import DAO.MailDAO;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entities.Account;
 import entities.Mail;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -32,8 +34,8 @@ public class ViewInboxActionSupport extends ActionSupport {
     }
     
     public String execute() throws Exception {
-        Account account = new Account();
-        account.setEmail("staff1@fpt.com");
+        Map session = ActionContext.getContext().getSession();
+        Account account = (Account)session.get("User");
         MailDAO mailDAO = new MailDAO();
         mails = mailDAO.loadInbox(account);
         return "success";
