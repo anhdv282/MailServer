@@ -267,7 +267,7 @@ create proc CheckLogin
 as
 select A.emailId, A.pass, A.accType, A.changePass, A.[status]
 from tblAccount as A
-where A.[status] = 1
+where A.[status] = 1 and A.emailId = @emailId and A.pass = @pass
 
 go
 
@@ -292,11 +292,11 @@ go
 create proc LoadSentMail
 @senderId nvarchar(100)
 as
-select MD.mailId, M.[subject], M.content, M.created, M.[status]
+select MD.mailId, M.senderId, M.[subject], M.content, M.created, M.[status]
 from tblMailDetail as MD join tblMail as M
 on MD.mailId = M.mailId
 where M.senderId = @senderId
-group by MD.mailId, M.[subject], M.content, M.created, M.[status]
+group by MD.mailId, M.senderId,M.[subject], M.content, M.created, M.[status]
 order by created desc
 
 go
@@ -304,11 +304,11 @@ go
 create proc LoadInboxMail
 @receiverId nvarchar(100)
 as
-select MD.mailId, M.[subject], M.content, M.created, M.[status]
+select MD.mailId, M.senderId,M.[subject], M.content, M.created, M.[status]
 from tblMailDetail as MD join tblMail as M
 on MD.mailId = M.mailId
 where MD.receiverId = @receiverId
-group by MD.mailId, M.[subject], M.content, M.created, M.[status]
+group by MD.mailId,M.senderId, M.[subject], M.content, M.created, M.[status]
 order by created desc
 
 go

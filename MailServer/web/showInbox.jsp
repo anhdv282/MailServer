@@ -20,6 +20,7 @@
             </tr>
             <s:iterator var="m" value="mails">
                 <tr>
+                    <td><s:property value="#m.sender"/></td>
                     <td><s:property value="#m.subject"/></td>
                     <td><s:property value="#m.content"/></td>
                 </tr>

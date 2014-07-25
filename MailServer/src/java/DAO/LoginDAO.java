@@ -9,7 +9,6 @@ package DAO;
 import entities.Account;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -27,7 +26,6 @@ public class LoginDAO {
     
     public boolean checkLogin(Account account) {
         boolean check = false;
-        
         try {
             Connection con = util.getConnection();
             CallableStatement stm = con.prepareCall("{call CheckLogin(?,?)}");            
@@ -36,7 +34,9 @@ public class LoginDAO {
             ResultSet rs = stm.executeQuery();
             check = rs.next();
             if (check){
-                account.setStatus(rs.getInt(10));
+                account.setAccType(rs.getString(3));
+                account.setChangePass(rs.getBoolean(4));
+                account.setStatus(rs.getInt(5));
             }
             rs.close();
             con.close();

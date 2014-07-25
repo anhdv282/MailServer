@@ -13,8 +13,8 @@
         <title>Send Mail Page</title>
     </head>
     <body>
+        Hello <%=session.getAttribute("User").toString()%>
         <s:form action="SendMail" method="POST">
-            Sender <s:textfield type="text" name="sender"/><br/>
             Receiver <s:textfield type="text" name="receiver"/><br/>
             Subject <s:textfield type="text" name="subject"/><br/>
             Content <s:textarea type="text" name="content"/><br/>

@@ -7,9 +7,11 @@
 package app;
 
 import DAO.MailDAO;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entities.Account;
 import entities.Mail;
+import java.util.Map;
 
 /**
  *
@@ -17,18 +19,9 @@ import entities.Mail;
  */
 public class MailActionSupport extends ActionSupport {
     
-    String sender;
     String receiver;
     String subject;
     String content;
-
-    public String getSender() {
-        return sender;
-    }
-
-    public void setSender(String Sender) {
-        this.sender = Sender;
-    }
 
     public String getReceiver() {
         return receiver;
@@ -58,8 +51,8 @@ public class MailActionSupport extends ActionSupport {
     }
     
     public String execute() throws Exception {
-        Account send = new Account();
-        send.setEmail(sender);
+        Map session = ActionContext.getContext().getSession();
+        Account send = (Account)session.get("User");
         Account receive = new Account();
         receive.setEmail(receiver);
         Mail mail = new Mail();
@@ -79,9 +72,6 @@ public class MailActionSupport extends ActionSupport {
 
     @Override
     public void validate() {
-        if (getSender().length() == 0) {
-            addFieldError("sender", getText("sender required"));
-        }
         if (getReceiver().length() == 0) {
             addFieldError("receiver", getText("receiver required"));
         }
