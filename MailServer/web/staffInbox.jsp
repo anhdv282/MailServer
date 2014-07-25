@@ -133,21 +133,21 @@
                             </ul>
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
-                        
+
                         <!-- Tasks: style can be found in dropdown.less -->
-                        
+
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>Viet Anh<i class="caret"></i></span>
+                                <span><%=session.getAttribute("User").toString()%><i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
                                     <img src="img/avatar04.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        Viet Anh 
+                                        <%=session.getAttribute("User").toString()%> 
                                         <small>Staff</small>
                                     </p>
                                 </li>
@@ -159,7 +159,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<s:url action="Logout"/>" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -179,7 +179,7 @@
                             <img src="img/avatar04.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, Viet Anh</p>
+                            <p>Hello, <%=session.getAttribute("User").toString()%></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -201,14 +201,14 @@
                                 <i class="glyphicon glyphicon-book"></i> <span>Courses</span>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="pages/mailbox.html">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -239,16 +239,15 @@
                                                 <h3 class="box-title">INBOX</h3>
                                             </div>
                                             <!-- compose message btn -->
-                                            <a class="btn btn-block btn-primary" data-toggle="modal" data-target="#compose-modal"><i class="fa fa-pencil"></i> Compose Message</a>
+                                            <a class="btn btn-block btn-primary" data-toggle="modal" href="../MailServer/staffMail.jsp"><i class="fa fa-pencil"></i> Compose Message</a>
                                             <!-- Navigation - folders-->
                                             <div style="margin-top: 15px;">
                                                 <ul class="nav nav-pills nav-stacked">
                                                     <li class="header">Folders</li>
-                                                    <li class="active"><a href="#"><i class="fa fa-inbox"></i> Inbox (14)</a></li>
-                                                    <li><a href="#"><i class="fa fa-pencil-square-o"></i> Drafts</a></li>
-                                                    <li><a href="#"><i class="fa fa-mail-forward"></i> Sent</a></li>
-                                                    <li><a href="#"><i class="fa fa-star"></i> Starred</a></li>
-                                                    <li><a href="#"><i class="fa fa-folder"></i> Junk</a></li>
+                                                    <li class="active"><a href="<s:url action="viewStaffInbox"/>"><i class="fa fa-inbox"></i> Inbox (14)</a></li>
+                                                    
+                                                    <li><a href="<s:url action="viewStaffSent"/>"><i class="fa fa-mail-forward"></i> Sent</a></li>
+                                                    
                                                 </ul>
                                             </div>
                                         </div><!-- /.col (LEFT) -->
@@ -272,7 +271,6 @@
                                                             <li><a href="#">Delete</a></li>
                                                         </ul>
                                                     </div>
-
                                                 </div>
                                                 <div class="col-sm-6 search-form">
                                                     <form action="#" class="text-right">
@@ -289,83 +287,19 @@
                                             <div class="table-responsive">
                                                 <!-- THE MESSAGES -->
                                                 <table class="table table-mailbox">
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr class="unread">
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="small-col"><input type="checkbox" /></td>
-                                                        <td class="small-col"><i class="fa fa-star-o"></i></td>
-                                                        <td class="name"><a href="#">John Doe</a></td>
-                                                        <td class="subject"><a href="#">Urgent! Please read</a></td>
-                                                        <td class="time">12:30 PM</td>
-                                                    </tr>
+                                                    <th>
+                                                    <td class="name">Email</td>
+                                                    <td class="name">Subject</td>
+                                                    <td class="time">Date</td>
+                                                    </th>
+                                                    <s:iterator var="m" value="mails">
+                                                        <tr>
+                                                            <td class="small-col"><input type="checkbox" /></td>
+                                                            <td class="name"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.sender"/></a></td>
+                                                            <td class="subject"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
+                                                            <td class="time"><s:property value="#m.date"/></td>
+                                                        </tr>
+                                                    </s:iterator>
                                                 </table>
                                             </div><!-- /.table-responsive -->
                                         </div><!-- /.col (RIGHT) -->
@@ -417,10 +351,10 @@
 
         <!-- AdminLTE App -->
         <script src="js/AdminLTE/app.js" type="text/javascript"></script>
-        
+
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>     
-        
+
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
 

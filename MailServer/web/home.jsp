@@ -7,4 +7,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
-<s:action name="view" executeResult="true"/>
+<s:action name="viewEvent" executeResult="true"/>

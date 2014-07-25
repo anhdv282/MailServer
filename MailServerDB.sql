@@ -258,7 +258,7 @@ create proc DeleteEvent
 as
 delete tblEvent
 where eventId = @eventId
-
+----
 go
 
 create proc CheckLogin
@@ -285,7 +285,7 @@ create proc SendMail
 @mailId int,
 @receiverId nvarchar(100)
 as
-insert tblAccountMail(mailId, receiverId) values (@mailId, @receiverId)
+insert tblMailDetail(mailId, receiverId) values (@mailId, @receiverId)
 
 go
 
@@ -310,6 +310,15 @@ on MD.mailId = M.mailId
 where MD.receiverId = @receiverId
 group by MD.mailId,M.senderId, M.[subject], M.content, M.created, M.[status]
 order by created desc
+
+go
+create proc GetMailByID
+@Id int
+as
+select MD.mailId, M.senderId,MD.receiverId,M.[subject], M.content, M.created, M.[status]
+from tblMail as M join tblMailDetail as MD
+on M.mailId = MD.mailId
+where M.mailId = @Id
 
 go
 
@@ -365,6 +374,6 @@ from tblRole as R join tblAccount as A
 on R.roleId = A.roleId)
 as AR  join Course as C
 on AR.accId = C.studentId
-where C.courseId = @courseId
+where C.courseId = @courseId 
 
 select * from tblMail

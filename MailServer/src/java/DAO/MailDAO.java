@@ -8,7 +8,6 @@ package DAO;
 
 import entities.Account;
 import entities.Mail;
-import entities.Student;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -60,10 +59,11 @@ public class MailDAO {
             while (rs.next()) {
                 Mail mail = new Mail();
                 mail.setId(rs.getInt(1));
-                mail.setSubject(rs.getString(2));
-                mail.setContent(rs.getString(3));
-                mail.setDate(rs.getString(4));
-                mail.setStatus(rs.getInt(1));
+                mail.setSender(account);
+                mail.setSubject(rs.getString(3));
+                mail.setContent(rs.getString(4));
+                mail.setDate(rs.getString(5));
+                mail.setStatus(rs.getInt(6));
                 mails.add(mail);
             }
             con.close();
@@ -107,5 +107,36 @@ public class MailDAO {
         } catch (SQLException ex) {
             Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public Mail getMailByID(int id){
+        try {
+            Connection con = util.getConnection();
+            CallableStatement stm = con.prepareCall("{call GetMailByID(?)}");
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                Mail mail = new Mail();
+                mail.setId(rs.getInt(1));
+                Account sender = new Account();
+                sender.setEmail(rs.getString(2));
+                mail.setSender(sender);
+                mail.setSubject(rs.getString(4));
+                mail.setContent(rs.getString(5));
+                mail.setDate(rs.getString(6));
+                mail.setStatus(rs.getInt(7));
+                while(rs.next()){
+                    Account receiver = new Account();
+                    receiver.setEmail(rs.getString(3));
+                    mail.getReceivers().add(receiver);
+                }
+                con.close();
+                return mail;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

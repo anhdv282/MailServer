@@ -1,10 +1,9 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%-- 
     Document   : staff
     Created on : Jul 16, 2014, 8:35:43 PM
     Author     : DANG
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
@@ -41,7 +40,7 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="home.jsp" class="logo">
+            <a href="index.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 <img src="img/logo.png"/>
                 Stark Institute
@@ -134,9 +133,9 @@
                             </ul>
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
-                        
+
                         <!-- Tasks: style can be found in dropdown.less -->
-                        
+
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -198,18 +197,18 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="staff.jsp">
+                            <a href="index.html">
                                 <i class="glyphicon glyphicon-book"></i> <span>Courses</span>
                             </a>
                         </li>
-                        
+
                         <li>
-                            <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
+                            <a href="pages/mailbox.html">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -218,55 +217,106 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
-                <section class="content-header">
-                    <h1>
-                        Home
-                        <small>Courses</small>
+                <section class="content-header no-margin">
+                    <h1 class="text-center">
+                        Mailbox
                     </h1>
-                    <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Courses</li>
-                    </ol>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
+                    <!-- MAILBOX BEGIN -->
+                    <div class="mailbox row">
+                        <div class="col-xs-12">
+                            <div class="box box-solid">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                            <!-- BOXES are complex enough to move the .box-header around.
+                                                 This is an example of having the box header within the box body -->
+                                            <div class="box-header">
+                                                <i class="fa fa-inbox"></i>
+                                                <h3 class="box-title">INBOX</h3>
+                                            </div>
+                                            <!-- compose message btn -->
+                                            <a class="btn btn-block btn-primary" data-toggle="modal" href="../MailServer/staffMail.jsp"><i class="fa fa-pencil"></i> Compose Message</a>
+                                            <!-- Navigation - folders-->
+                                            <div style="margin-top: 15px;">
+                                                <ul class="nav nav-pills nav-stacked">
+                                                    <li class="header">Folders</li>
+                                                    <li><a href="<s:url action="viewStaffInbox"/>"><i class="fa fa-inbox"></i> Inbox ()</a></li>
+                                                    
+                                                    <li class="active"><a href="<s:url action="viewStaffSent"/>"><i class="fa fa-mail-forward"></i> Sent</a></li>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </div><!-- /.col (LEFT) -->
+                                        <div class="col-md-9 col-sm-8">
+                                            <div class="row pad">
+                                                <div class="col-sm-6">
+                                                    <label style="margin-right: 10px;">
+                                                        <input type="checkbox" id="check-all"/>
+                                                    </label>
+                                                    <!-- Action button -->
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default btn-sm btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                            Action <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#">Mark as read</a></li>
+                                                            <li><a href="#">Mark as unread</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Move to junk</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 search-form">
+                                                    <form action="#" class="text-right">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control input-sm" placeholder="Search">
+                                                            <div class="input-group-btn">
+                                                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.row -->
 
-                    <!-- Small boxes (Stat box) -->
-                    <div class="box box-info">
-                        <div class="box-header">
-                            <i class="fa fa-envelope"></i>
-                            <h3 class="box-title">Quick Email</h3>
-                            <!-- tools box -->
-                            <div class="pull-right box-tools">
-                                <button class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove"><i class="fa fa-times"></i></button>
-                            </div><!-- /. tools -->
-                        </div>
-                        <div class="box-body">
-                            <s:form action="SendMail" method="post" theme="simple">
-                                <div class="form-group">
-<!--                                    <input type="email" class="form-control" name="emailto" placeholder="Email to:" />-->
-                                    <s:textfield cssClass="form-control" name="receiver" type="email" placeholder="Email to:"/>
-                                </div>
-                                <div class="form-group">
-<!--                                    <input type="text" class="form-control" name="subject" placeholder="Subject" />-->
-                                    <s:textfield cssClass="form-control" name="subject" type="text" placeholder="Subject"/>
-                                </div>
-                                <div>
-<!--                                    <textarea class="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>-->
-                                    <s:textarea cssClass="textarea" placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="content"></s:textarea>
-                                </div>
+                                            <div class="table-responsive">
+                                                <!-- THE MESSAGES -->
+                                                <table class="table table-mailbox">
+                                                    <th>
+                                                    <td class="name">Email</td>
+                                                    <td class="name">Subject</td>
+                                                    <td class="time">Date</td>
+                                                    </th>
+                                                    <s:iterator var="m" value="mails">
+                                                        <tr>
+                                                            <td class="small-col"><input type="checkbox" /></td>
+                                                            <td class="name"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.sender"/></a></td>
+                                                            <td class="subject"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
+                                                            <td class="time"><s:property value="#m.date"/></td>
+                                                        </tr>
+                                                    </s:iterator>
+                                                </table>
+                                            </div><!-- /.table-responsive -->
+                                        </div><!-- /.col (RIGHT) -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.box-body -->
                                 <div class="box-footer clearfix">
-<!--                                    <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>-->
-                                <s:submit cssClass="pull-right btn btn-default" id="sendEmail" value="Send"/>
-                                </div>
-                            </s:form>
-                        </div>
-<!--                        <div class="box-footer clearfix">
-                            <button class="pull-right btn btn-default" id="sendEmail">Send <i class="fa fa-arrow-circle-right"></i></button>
-                        </div>-->
+                                    <div class="pull-right">
+                                        <small>Showing 1-12/1,240</small>
+                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
+                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-right"></i></button>
+                                    </div>
+                                </div><!-- box-footer -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col (MAIN) -->
                     </div>
-                    
+                    <!-- MAILBOX END -->
+
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -301,12 +351,13 @@
 
         <!-- AdminLTE App -->
         <script src="js/AdminLTE/app.js" type="text/javascript"></script>
-        
+
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>     
-        
+
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
 
     </body>
 </html>
+
