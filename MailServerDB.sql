@@ -225,7 +225,15 @@ from tblEvent as E
 order by created desc
 
 go
+create proc LoadEventDetailById
+@eventId int
+as
+select E.eventId, E.title, E.author, E.content, E.photo, E.created
+from tblEvent as E
+where E.eventId = @eventId
 
+
+go
 create proc AddNewEvent
 @title nvarchar(max),
 @author nvarchar(100),
@@ -364,16 +372,26 @@ from tblCourse as C join tblCourseStudent as CS
 on C.courseId = CS.courseId
 
 go
+create proc GetCourse
+as
+select C.courseName
+from tblCourse as C
+
+go
 create proc GetStudentsByCourse
 @courseId int
 as
 select AR.accId, AR.roleName, AR.emailId, AR.pass, AR.[address], AR.dob, AR.photo, AR.created, AR.[status]
 from
-(select A.accId, R.roleName, A.emailId, A.pass, A.[address], A.dob, A.photo, A.created, A.[status]
-from tblRole as R join tblAccount as A
-on R.roleId = A.roleId)
 as AR  join Course as C
 on AR.accId = C.studentId
 where C.courseId = @courseId 
 
+--going
+(select A.accId, R.roleName, A.emailId, A.pass, A.[address], A.dob, A.photo, A.created, A.[status]
+from tblRole as R join tblAccount as A
+on R.roleId = A.roleId)
+go
+
 select * from tblMail
+exec GetCourse

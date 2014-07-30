@@ -1,8 +1,9 @@
 <%-- 
-    Document   : staff
-    Created on : Jul 16, 2014, 8:35:43 PM
+    Document   : studentInbox
+    Created on : Jul 26, 2014, 3:53:35 PM
     Author     : DANG
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
@@ -10,7 +11,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Staff Page</title>
+        <title>Student Page</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -41,9 +42,9 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="home.jsp" class="logo">
+            <a href="index.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                <img src="img/logo.png"/>
+                <img src="img/logo.png" />
                 Stark Institute
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -146,10 +147,10 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="img/avatar04.png" class="img-circle" alt="User Image" />
+                                    <img src="img/avatar.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        <%=session.getAttribute("User").toString()%> 
-                                        <small>Staff</small>
+                                        <%=session.getAttribute("User").toString()%>
+                                        <small>Student</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -177,7 +178,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="img/avatar04.png" class="img-circle" alt="User Image" />
+                            <img src="img/avatar.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>Hello, <%=session.getAttribute("User").toString()%></p>
@@ -198,13 +199,13 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="staff.jsp">
-                                <i class="glyphicon glyphicon-book"></i> <span>Courses</span>
+                            <a href="student.jsp">
+                                <i class="glyphicon glyphicon-list-alt"></i> <span>Assignments</span>
                             </a>
                         </li>
                         
                         <li>
-                            <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
+                            <a href="<s:url action="viewStudentInbox"/>">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
@@ -221,11 +222,11 @@
                 <section class="content-header">
                     <h1>
                         Home
-                        <small>Courses</small>
+                        <small>Assignments</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Courses</li>
+                        <li class="active">Assignments</li>
                     </ol>
                 </section>
 
@@ -233,29 +234,98 @@
                 <section class="content">
 
                     <!-- Small boxes (Stat box) -->
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Courses</h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body table-responsive">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Course</th>                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <s:iterator var="c" value="lst">
-                                    <tr>
-                                        <td><a href="<s:url action="viewCourseDetail"><s:param name="id" value="#c.courseId"/></s:url>"><s:property value="#c.courseName"/></a></td>
-                                    </tr>
-                                    </s:iterator>
-                                </tbody>
+                    <!-- MAILBOX BEGIN -->
+                    <div class="mailbox row">
+                        <div class="col-xs-12">
+                            <div class="box box-solid">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4">
+                                            <!-- BOXES are complex enough to move the .box-header around.
+                                                 This is an example of having the box header within the box body -->
+                                            <div class="box-header">
+                                                <i class="fa fa-inbox"></i>
+                                                <h3 class="box-title">INBOX</h3>
+                                            </div>
+                                            <!-- compose message btn -->
+                                            <a class="btn btn-block btn-primary" data-toggle="modal" href="../MailServer/studentMail.jsp"><i class="fa fa-pencil"></i> Compose Message</a>
+                                            <!-- Navigation - folders-->
+                                            <div style="margin-top: 15px;">
+                                                <ul class="nav nav-pills nav-stacked">
+                                                    <li class="header">Folders</li>
+                                                    <li class="active"><a href="<s:url action="viewStudentInbox"/>"><i class="fa fa-inbox"></i> Inbox (14)</a></li>
 
-                            </table>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                    
+                                                    <li><a href="<s:url action="viewStudentSent"/>"><i class="fa fa-mail-forward"></i> Sent</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div><!-- /.col (LEFT) -->
+                                        <div class="col-md-9 col-sm-8">
+                                            <div class="row pad">
+                                                <div class="col-sm-6">
+                                                    <label style="margin-right: 10px;">
+                                                        <input type="checkbox" id="check-all"/>
+                                                    </label>
+                                                    <!-- Action button -->
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default btn-sm btn-flat dropdown-toggle" data-toggle="dropdown">
+                                                            Action <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#">Mark as read</a></li>
+                                                            <li><a href="#">Mark as unread</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Move to junk</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Delete</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 search-form">
+                                                    <form action="#" class="text-right">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control input-sm" placeholder="Search">
+                                                            <div class="input-group-btn">
+                                                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div><!-- /.row -->
+
+                                            <div class="table-responsive">
+                                                <!-- THE MESSAGES -->
+                                                <table class="table table-mailbox">
+                                                    <th>
+                                                    <td class="name">From</td>
+                                                    <td class="name">Subject</td>
+                                                    <td class="time">Date</td>
+                                                    </th>
+                                                    <s:iterator var="m" value="mails">
+                                                        <tr>
+                                                            <td class="small-col"><input type="checkbox" /></td>
+                                                            <td class="name"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.sender"/></a></td>
+                                                            <td class="subject"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
+                                                            <td class="time"><s:property value="#m.date"/></td>
+                                                        </tr>
+                                                    </s:iterator>
+                                                </table>
+                                            </div><!-- /.table-responsive -->
+                                        </div><!-- /.col (RIGHT) -->
+                                    </div><!-- /.row -->
+                                </div><!-- /.box-body -->
+                                <div class="box-footer clearfix">
+                                    <div class="pull-right">
+                                        <small>Showing 1-12/1,240</small>
+                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
+                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-right"></i></button>
+                                    </div>
+                                </div><!-- box-footer -->
+                            </div><!-- /.box -->
+                        </div><!-- /.col (MAIN) -->
+                    </div>
+                    <!-- MAILBOX END -->
+
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->

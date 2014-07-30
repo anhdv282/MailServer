@@ -1,6 +1,6 @@
 <%-- 
-    Document   : staff
-    Created on : Jul 16, 2014, 8:35:43 PM
+    Document   : studentAssignment
+    Created on : Jul 26, 2014, 3:52:58 PM
     Author     : DANG
 --%>
 
@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Staff Page</title>
+        <title>Student Page</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -41,9 +41,9 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="home.jsp" class="logo">
+            <a href="index.html" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                <img src="img/logo.png"/>
+                <img src="img/logo.png" />
                 Stark Institute
             </a>
             <!-- Header Navbar: style can be found in header.less -->
@@ -146,10 +146,10 @@
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="img/avatar04.png" class="img-circle" alt="User Image" />
+                                    <img src="img/avatar.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        <%=session.getAttribute("User").toString()%> 
-                                        <small>Staff</small>
+                                        <%=session.getAttribute("User").toString()%>
+                                        <small>Student</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -177,7 +177,7 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="img/avatar04.png" class="img-circle" alt="User Image" />
+                            <img src="img/avatar.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>Hello, <%=session.getAttribute("User").toString()%></p>
@@ -198,13 +198,13 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="staff.jsp">
-                                <i class="glyphicon glyphicon-book"></i> <span>Courses</span>
+                            <a href="student.jsp">
+                                <i class="glyphicon glyphicon-list-alt"></i> <span>Assignments</span>
                             </a>
                         </li>
                         
                         <li>
-                            <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
+                            <a href="<s:url action="viewStudentInbox"/>">
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
@@ -221,11 +221,11 @@
                 <section class="content-header">
                     <h1>
                         Home
-                        <small>Courses</small>
+                        <small>Assignments</small>
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        <li class="active">Courses</li>
+                        <li class="active">Assignments</li>
                     </ol>
                 </section>
 
@@ -233,29 +233,8 @@
                 <section class="content">
 
                     <!-- Small boxes (Stat box) -->
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Courses</h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body table-responsive">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Course</th>                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <s:iterator var="c" value="lst">
-                                    <tr>
-                                        <td><a href="<s:url action="viewCourseDetail"><s:param name="id" value="#c.courseId"/></s:url>"><s:property value="#c.courseName"/></a></td>
-                                    </tr>
-                                    </s:iterator>
-                                </tbody>
+                    Link Assignment
 
-                            </table>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                    
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->

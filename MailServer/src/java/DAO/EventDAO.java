@@ -102,4 +102,28 @@ public class EventDAO {
         }
         return false;
     }
+    
+    public Event loadEventById(int id){
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call GetMailByID(?)}");
+            stm.setInt(1, id);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                Event event = new Event();
+                event.setEventId(rs.getInt(1));
+                event.setTitle(rs.getString(2));
+                event.setAuthor(rs.getString(3));
+                event.setContent(rs.getString(4));
+                event.setDate(rs.getString(5));
+                event.setPhoto(rs.getString(6));
+                conn.close();
+                return event;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(EventDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

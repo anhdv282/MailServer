@@ -35,11 +35,11 @@ public class MailDAO {
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
                 Mail mail = new Mail();
-                mail.setId(rs.getInt(1));
-                mail.setSubject(rs.getString(2));
-                mail.setContent(rs.getString(3));
-                mail.setDate(rs.getString(4));
-                mail.setStatus(rs.getInt(1));
+                mail.setId(rs.getInt(1));                
+                mail.setSubject(rs.getString(3));
+                mail.setContent(rs.getString(4));
+                mail.setDate(rs.getString(5));
+                mail.setStatus(rs.getInt(6));
                 mails.add(mail);
             }
             con.close();

@@ -197,18 +197,18 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="index.html">
+                            <a href="staff.jsp">
                                 <i class="glyphicon glyphicon-book"></i> <span>Courses</span>
                             </a>
                         </li>
-
+                        
                         <li>
-                            <a href="pages/mailbox.html">
+                            <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
                                 <small class="badge pull-right bg-yellow">12</small>
                             </a>
                         </li>
-
+                        
                     </ul>
                 </section>
                 <!-- /.sidebar -->

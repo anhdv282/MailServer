@@ -15,13 +15,15 @@
         <action name="viewEvent" class="app.ViewEventActionSupport">
             <result name="success">event.jsp</result>
         </action>
+        <action name="eventDetail" class="app.EventDetailActionSupport">
+            <result name="success">eventDetail.jsp</result>
+        </action>
         <action name="Logout" class="app.LogoutActionSupport">
             <result name="success" type="redirect">home.jsp</result>
         </action>
         <action name="SendMail" class="app.MailActionSupport">
-            <result name="input">sendmail.jsp</result>
             <result name="fail">404.jsp</result>
-            <result name="success">inbox.jsp</result>
+            <result name="success">staffInbox.jsp</result>
         </action>
         <action name="addEvent" class="app.AddEventActionSupport">
             <result name="success">home.jsp</result>
@@ -35,6 +37,24 @@
         </action>
         <action name="viewMailDetail" class="app.MailDetailActionSupport">
             <result name="success">staffMailDetail.jsp</result>
+        </action>
+        <action name="viewCourse" class="app.ViewCourseActionSupport">
+            <result name="success">staffCourse.jsp</result>
+        </action>
+        <action name="viewAssignment" class="">
+            <result name="success">studentAssignment.jsp</result>
+        </action>
+        <action name="viewStudentInbox" class="app.ViewInboxActionSupport">
+            <result name="success">studentInbox.jsp</result>
+        </action>
+        <action name="viewStudentSent" class="app.ViewSentActionSupport">
+            <result name="success">studentSent.jsp</result>
+        </action>
+        <action name="viewStudentMailDetail" class="app.MailDetailActionSupport">
+            <result name="success">studentMailDetail.jsp</result>
+        </action>
+        <action name="viewCourseDetail" class="app.CourseDetailActionSupport">
+            <result name="success">staffCourseDetail.jsp</result>
         </action>
     </package>
 </struts>

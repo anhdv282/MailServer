@@ -49,22 +49,22 @@
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
-                
+
                 <div class="navbar-right">
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
-                        
+
                         <!-- Notifications: style can be found in dropdown.less -->
-                        
+
                         <!-- Tasks: style can be found in dropdown.less -->
-                        
+
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="../MailServer/login.jsp" class="dropdown-toggle">
                                 <i class="glyphicon glyphicon-user"></i>
                                 <span>Log in</span>
                             </a>
-                            
+
                         </li>
                     </ul>
                 </div>
@@ -76,9 +76,9 @@
                 <!-- sidebar: style can be found in sidebar.less -->
                 <section class="sidebar">
                     <!-- Sidebar user panel -->
-                    
+
                     <!-- search form -->
-                    
+
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
@@ -87,37 +87,37 @@
                                 <i class="glyphicon glyphicon-calendar"></i> <span>Events</span>
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="#">
                                 <i class="glyphicon glyphicon-stats"></i> <span>Result</span>                                
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="#">
                                 <i class="glyphicon glyphicon-download"></i> <span>Admission Form</span>                                
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="#">
                                 <i class="glyphicon glyphicon-user"></i> <span>Staffs</span>                                
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="#">
                                 <i class="glyphicon glyphicon-bullhorn"></i> <span>Jobs</span>                                
                             </a>
                         </li>
-                        
+
                         <li>
                             <a href="#">
                                 <i class="glyphicon glyphicon-comment"></i> <span>Contact us</span>                                
                             </a>
                         </li>
-                        
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -129,11 +129,11 @@
                 <section class="content-header">
                     <h1>
                         Home
-                        
+
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                        
+
                     </ol>
                 </section>
 
@@ -141,11 +141,11 @@
                 <section class="content">
 
                     <!-- Small boxes (Stat box) -->
-                    
+
                     <h4 class="page-header">
                         Welcome to Stark Institute
                         <div class="box box-solid">
-                            
+
                             <div class="box-body">
                                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                                     <ol class="carousel-indicators">
@@ -167,7 +167,7 @@
                                             </div>
                                         </div>
                                         <div class="item">
-                                        <img src="http://placehold.it/1280x400/AA3939/ffffff&text=Stark+Institute" alt="Third slide">
+                                            <img src="http://placehold.it/1280x400/AA3939/ffffff&text=Stark+Institute" alt="Third slide">
                                             <div class="carousel-caption">
                                                 Welcome to Stark Institute
                                             </div>
@@ -184,28 +184,29 @@
                         </div><!-- /.box -->
                     </h4>
                     <!-- Solid boxes -->
-                    <div class="row">
-                        <s:iterator var="p" value="lst">
+                    <div>
+                        <s:set var="e" value="event"/>
+
+                            <div>
+                                <!-- Danger box -->
+                                <div class="box box-solid box-danger">
+                                    <div class="box-header">
+                                        <h3 class="box-title"><s:property value="#e.title"/></h3>
+
+                                    </div>
+                                    <div class="box-body">
+                                        Author: <code><s:property value="#e.author"/></code>
+                                        <p>
+                                            <s:property value="#e.content"/>
+                                        </p>
+                                        <s:property value="#e.photo"/>
+                                        <s:property value="#e.date"/>
+                                    </div><!-- /.box-body -->
+                                </div><!-- /.box -->
+                            </div><!-- /.col -->
                         
-                        <div class="col-md-4">
-                            <!-- Danger box -->
-                            <div class="box box-solid box-danger">
-                                <div class="box-header">
-                                    <h3 class="box-title"><s:property value="#p.title"/></h3>
-                                    
-                                </div>
-                                <div class="box-body">
-                                    Author: <code><s:property value="#p.author"/></code>
-                                    <p>
-                                        <a href="<s:url action="eventDetail"><s:param name="id" value="#p.eventId"/></s:url>"><s:property value="#p.content"/></a>
-                                    </p>
-                                    <s:property value="#p.date"/>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div><!-- /.col -->
-                        </s:iterator>
                     </div>
-                    
+
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -240,10 +241,10 @@
 
         <!-- AdminLTE App -->
         <script src="js/AdminLTE/app.js" type="text/javascript"></script>
-        
+
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>     
-        
+
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
 
