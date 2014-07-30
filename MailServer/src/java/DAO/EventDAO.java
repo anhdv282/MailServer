@@ -106,7 +106,7 @@ public class EventDAO {
     public Event loadEventById(int id){
         try {
             Connection conn = util.getConnection();
-            CallableStatement stm = conn.prepareCall("{call GetMailByID(?)}");
+            CallableStatement stm = conn.prepareCall("{call LoadEventDetailById(?)}");
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
             if(rs.next()){
