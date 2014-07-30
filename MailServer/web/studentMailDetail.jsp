@@ -287,8 +287,11 @@
                                                     </div>
                                                     
                                                     <div class="box-body">
-                                                        <s:form action="Reply" method="post" theme="simple">
+                                                        <s:form action="SendMail" method="post" theme="simple">
                                                             <div>
+                                                                <s:hidden value="%{#session.User}" name="sender"/>
+                                                                <s:hidden value="%{mail.sender}" name="receiver"/>
+                                                                <s:hidden value="Reply: %{mail.subject}" name="subject"/>
                                                                 <s:textarea placeholder="Message" style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="content"></s:textarea>
                                                             </div>
                                                             <div class="box-footer clearfix">

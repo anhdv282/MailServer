@@ -377,7 +377,7 @@ on A.roleId = R.roleId
 where R.roleId = 2
 
 go
-
+-- error
 create proc CreateNewAccount
 @roleId int,
 @emailId int,
@@ -400,7 +400,7 @@ create proc GetCourse
 as
 select C.courseName
 from tblCourse as C
-
+--going
 go
 create proc GetStudentsByCourse
 @courseId int
