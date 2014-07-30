@@ -302,8 +302,8 @@
                                                     <s:iterator var="m" value="mails">
                                                         <tr>
                                                             <td class="small-col"><input type="checkbox" /></td>
-                                                            <td class="name"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.sender"/></a></td>
-                                                            <td class="subject"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
+                                                            <td class="name"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.sender"/></a></td>
+                                                            <td class="subject"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
                                                             <td class="time"><s:property value="#m.date"/></td>
                                                         </tr>
                                                     </s:iterator>

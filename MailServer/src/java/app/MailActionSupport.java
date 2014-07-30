@@ -64,8 +64,8 @@ public class MailActionSupport extends ActionSupport {
         boolean check = dAO.composeMail(mail);
         System.out.println(check);
         if (check) {
-            dAO.sendMail(mail);
-            return "success";
+            dAO.sendMail(mail);            
+            return send.getAccType();
         }
         return "fail";
     }

@@ -1,11 +1,10 @@
 <%-- 
-    Document   : eventAdd
-    Created on : Jul 21, 2014, 10:59:30 AM
+    Document   : adminViewCourse
+    Created on : Jul 30, 2014, 11:19:41 AM
     Author     : DANG
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -140,7 +139,7 @@
                                 <li class="user-header bg-light-blue">
                                     <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        <%=session.getAttribute("User").toString()%>
+                                        <%=session.getAttribute("User").toString()%> 
                                         <small>Administrator</small>
                                     </p>
                                 </li>
@@ -152,7 +151,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="<s:url action="Logout"/>" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -172,7 +171,7 @@
                             <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello,<%=session.getAttribute("User").toString()%></p>
+                            <p>Hello, <%=session.getAttribute("User").toString()%></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -191,21 +190,19 @@
                     <ul class="sidebar-menu">
                         <li class="active">
                             <a href="#">
-                                <i class="glyphicon glyphicon-calendar"></i> <span>Events</span>
+                                <i class="glyphicon glyphicon-calendar"></i><span>Events</span>
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="glyphicon glyphicon-user"></i> <span>Staffs</span> 
+                                <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
                         <li>
                             <a href="#">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>
-                                
                             </a>
-                            
                         </li>
                         <li>
                             <a href="<s:url action="viewCourse"/>">
@@ -223,55 +220,38 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Add Event
+                        View Event
                         
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> Add Event</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> View Course</a></li>
                         
                     </ol>
                 </section>
                 <section class="content">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Course</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Course</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <s:iterator var="c" value="lst">
+                                    <tr>
+                                        <td><a href="<s:url action="viewAdminCourseDetail"><s:param name="id" value="#c.courseId"/></s:url>"><s:property value="#c.courseName"/></a></td>
+                                    </tr>
+                                    </s:iterator>
+                                </tbody>
 
-                    <div class="box box-warning">
-                                <div class="box-header">
-                                    <h3 class="box-title">General Elements</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <s:form role="form" action="addEvent" method="POST" theme="simple">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Title</label>                                            
-                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="title"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Author</label>
-                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="author"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Photo</label>
-                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="photo"/>
-                                        </div>
-<!--                                        <div class="form-group">
-                                            <label for="exampleInputFile">Photo</label>
-                                            <input type="file" id="exampleInputFile">
-                                            
-                                        </div>-->
-                                        <!-- textarea -->
-                                     
-                                        <div class="form-group">
-                                            <label>Content</label>
-                                            
-                                            <s:textarea cssClass="form-control" rows="4" placeholder="Content..." name="content"></s:textarea>
-                                        </div> 
-                                        <div class="box-footer">
-                                            
-                                        <s:submit cssClass="btn btn-primary" type="submit" value="Submit"/>
-                                        </div>   
-                                    </s:form>
-                                </div><!-- /.box-body -->
-                                
-                            </div><!-- /.box -->
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                    <a href="../MailServer/adminAddEvent.jsp">Add Course</a>
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -293,3 +273,4 @@
 
     </body>
 </html>
+

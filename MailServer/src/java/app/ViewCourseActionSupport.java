@@ -7,9 +7,12 @@
 package app;
 
 import DAO.CourseDAO;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import entities.Account;
 import entities.Course;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -32,6 +35,12 @@ public class ViewCourseActionSupport extends ActionSupport {
     }
     
     public String execute() throws Exception {
+        Map session = ActionContext.getContext().getSession();
+        Account account = (Account)session.get("User");
+        if(account!= null && account.getAccType().equalsIgnoreCase("admin"))
+        {
+            return "admin";
+        }
         return "success";
     }
     
