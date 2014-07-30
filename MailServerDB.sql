@@ -216,6 +216,30 @@ VALUES
 ('3','28'),
 ('3','29')
 
+INSERT INTO tblMail(senderId, [subject], content)
+VALUES
+('staff1@fpt.com','Hello','Hello My Students'),
+('student1@fpt.com','Hello','Hello Teacher'),
+('staff1@fpt.com','Assignment','C Assignment'),
+('staff1@fpt.com','Assignment','Java Assignment'),
+('student1@fpt.com','Reply: Assignment','My C Assignment'),
+('staff1@fpt.com','Assignment','C# Assignment'),
+('student1@fpt.com','Reply: Assignment','My C# Assignment'),
+('student1@fpt.com','Reply: Assignment','My Java Assignment'),
+('staff1@fpt.com','Result','Excellent')
+
+INSERT INTO tblMailDetail(mailId, receiverId)
+VALUES
+(1,'student1@fpt.com'),
+(2,'staff1@fpt.com'),
+(3,'student1@fpt.com'),
+(4,'student1@fpt.com'),
+(5,'staff1@fpt.com'),
+(6,'student1@fpt.com'),
+(7,'staff1@fpt.com'),
+(8,'staff1@fpt.com'),
+(9,'student1@fpt.com')
+
 SELECT * FROM tblCourseStudent
 
 create proc LoadEvents
