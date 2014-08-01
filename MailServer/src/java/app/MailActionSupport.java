@@ -27,6 +27,10 @@ public class MailActionSupport extends ActionSupport {
         return receivers;
     }
 
+    public void setReceivers(String Receivers) {
+        this.receivers= Receivers.split(";");
+    }
+    
     public void setReceivers(String[] Receivers) {
         this.receivers= Receivers;
     }
