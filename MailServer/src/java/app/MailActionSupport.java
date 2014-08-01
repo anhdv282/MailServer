@@ -19,16 +19,16 @@ import java.util.Map;
  */
 public class MailActionSupport extends ActionSupport {
     
-    String receiver;
+    String[] receivers;
     String subject;
     String content;
 
-    public String getReceiver() {
-        return receiver;
+    public String[] getReceivers() {
+        return receivers;
     }
 
-    public void setReceiver(String Receiver) {
-        this.receiver = Receiver;
+    public void setReceivers(String[] Receivers) {
+        this.receivers= Receivers;
     }
 
     public String getSubject() {
@@ -53,11 +53,13 @@ public class MailActionSupport extends ActionSupport {
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
         Account send = (Account)session.get("User");
-        Account receive = new Account();
-        receive.setEmail(receiver);
         Mail mail = new Mail();
         mail.setSender(send);
-        mail.getReceivers().add(receive);
+        for (String string : receivers) {
+            Account receive = new Account();
+            receive.setEmail(string);
+            mail.getReceivers().add(receive);
+        }
         mail.setSubject(subject);
         mail.setContent(content);
         MailDAO dAO = new MailDAO();
@@ -72,7 +74,7 @@ public class MailActionSupport extends ActionSupport {
 
     @Override
     public void validate() {
-        if (getReceiver().length() == 0) {
+        if (getReceivers().length == 0) {
             addFieldError("receiver", getText("receiver required"));
         }
     }

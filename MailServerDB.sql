@@ -231,6 +231,7 @@ VALUES
 INSERT INTO tblMailDetail(mailId, receiverId)
 VALUES
 (1,'student1@fpt.com'),
+(1,'student2@fpt.com'),
 (2,'staff1@fpt.com'),
 (3,'student1@fpt.com'),
 (4,'student1@fpt.com'),
