@@ -12,6 +12,15 @@
             <result name="student" type="redirect">student.jsp</result>
             <result name="fail">404.jsp</result>
         </action>
+        <action name="viewStudent" class="app.ViewStudentActionSupport">
+            <result name="success"></result>
+            <result name="admin">adminViewStudent.jsp</result>
+        </action>
+        <action name="viewStaff" class="app.ViewStaffActionSupport">
+            <result name="success"></result>
+            <result name="admin">adminViewStaff.jsp</result>
+        </action>
+        
         <action name="viewEvent" class="app.ViewEventActionSupport">
             <result name="success">event.jsp</result>
             <result name="admin">adminViewEvent.jsp</result>
@@ -58,6 +67,10 @@
         </action>
         <action name="viewCourseDetail" class="app.CourseDetailActionSupport">
             <result name="success">staffCourseDetail.jsp</result>
+        </action>
+        <action name="viewStudentByCourse" class="app.ViewStudentByCourseActionSupport">
+            <result name="success">staffStudentByCourse.jsp</result>
+            <result name="admin">adminViewStudentByCourse.jsp</result>
         </action>
     </package>
 </struts>

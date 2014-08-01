@@ -206,7 +206,7 @@
                         <li>
                             <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                                
                             </a>
                         </li>
                         
@@ -247,7 +247,7 @@
                                 <tbody>
                                     <s:iterator var="c" value="lst">
                                     <tr>
-                                        <td><a href="<s:url action="viewCourseDetail"><s:param name="id" value="#c.courseId"/></s:url>"><s:property value="#c.courseName"/></a></td>
+                                        <td><a href="<s:url action="viewStudentByCourse"><s:param name="id" value="#c.courseId"/></s:url>"><s:property value="#c.courseName"/></a></td>
                                     </tr>
                                     </s:iterator>
                                 </tbody>

@@ -205,7 +205,7 @@
                         <li>
                             <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                                
                             </a>
                         </li>
                         
@@ -277,7 +277,7 @@
                                                     <div class="text-right"><s:property value="#m.date"/></div>
                                                     
                                                     <div class="box box-success">
-                                                        <h3><s:property value="#m.content"/></h3>
+                                                        <h3><s:property value="#m.content" escapeHtml="false"/></h3>
                                                     </div>
                                                     
                                                     <div class="box-body">

@@ -206,7 +206,7 @@
                         <li>
                             <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                                
                             </a>
                         </li>
                         

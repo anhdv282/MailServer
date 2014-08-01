@@ -240,7 +240,7 @@ VALUES
 (8,'staff1@fpt.com'),
 (9,'student1@fpt.com')
 
-SELECT * FROM tblCourseStudent
+SELECT * FROM tblStudent
 
 create proc LoadEvents
 as
@@ -360,34 +360,39 @@ select A.emailId, A.pass, A.accType, A.changePass, A.[status]
 from tblAccount as A
 
 go
---ongoing
+--ok
 create proc GetAllStudent
 as
-select A.emailId, S.name, S.[address], A.pass, A.[address], A.dob, A.photo, A.created, A.[status]
-from tblAccount as A join tblStudent as S
-on A.emailId = S.emailId
+select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStudent as S
+order by S.created desc
+go
+
+create proc GetStudentById
+@id int
+as
+select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStudent as S
+where S.studentId = @id
+order by S.created desc
 
 go
 
 create proc GetAllStaff
 as
-select A.accId, R.roleName, A.emailId, A.pass, A.[address], A.dob, A.photo, A.created, A.[status]
-from tblAccount as A join tblRole as R
-on A.roleId = R.roleId
-where R.roleId = 2
-
+select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStaff as S
+order by S.created desc
 go
--- error
-create proc CreateNewAccount
-@roleId int,
-@emailId int,
-@pass nvarchar(100),
-@name nvarchar(100),
-@address nvarchar(100)
-as
-insert tblAccount(roleId, emailId, pass, name, [address]) values (@roleId, @emailId, @pass, @name, @address)
 
-go 
+create proc GetStaffById
+@id int
+as
+select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStaff as S
+where S.staffId = @id
+order by S.created desc
+go
 
 create view Course
 as
@@ -396,26 +401,18 @@ from tblCourse as C join tblCourseStudent as CS
 on C.courseId = CS.courseId
 
 go
+--ok
 create proc GetCourse
 as
-select C.courseName
+select C.courseName,C.courseId
 from tblCourse as C
+
 --going
 go
 create proc GetStudentsByCourse
 @courseId int
 as
-select AR.accId, AR.roleName, AR.emailId, AR.pass, AR.[address], AR.dob, AR.photo, AR.created, AR.[status]
-from
-as AR  join Course as C
-on AR.accId = C.studentId
+select C.courseName, C.teacherId, C.studentId
+from Course as C
 where C.courseId = @courseId 
 
---going
-(select A.accId, R.roleName, A.emailId, A.pass, A.[address], A.dob, A.photo, A.created, A.[status]
-from tblRole as R join tblAccount as A
-on R.roleId = A.roleId)
-go
-
-select * from tblMail
-exec GetCourse

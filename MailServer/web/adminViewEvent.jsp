@@ -190,17 +190,17 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="#">
+                            <a href="../MailServer/admin.jsp">
                                 <i class="glyphicon glyphicon-calendar"></i><span>Events</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="<s:url action="viewStaff"/>">
                                 <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="<s:url action="viewStudent"/>">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>
                             </a>

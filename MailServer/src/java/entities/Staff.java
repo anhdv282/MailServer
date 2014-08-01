@@ -12,25 +12,25 @@ package entities;
  */
 public class Staff {
     private int id;
-    private Account account;
+    private String emailId;
     private String name;
     private String address;
-    private String birth;
+    private String dob;
     private String photo;
-    private String date;
+    private String created;
     private int status;
 
     public Staff() {
     }
 
-    public Staff(int id, Account account, String name, String address, String birth, String photo, String date, int status) {
+    public Staff(int id, String emailId, String name, String address, String dob, String photo, String created, int status) {
         this.id = id;
-        this.account = account;
+        this.emailId = emailId;
         this.name = name;
         this.address = address;
-        this.birth = birth;
+        this.dob = dob;
         this.photo = photo;
-        this.date = date;
+        this.created = created;
         this.status = status;
     }
 
@@ -42,12 +42,12 @@ public class Staff {
         this.id = id;
     }
 
-    public Account getAccount() {
-        return account;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getName() {
@@ -66,12 +66,12 @@ public class Staff {
         this.address = address;
     }
 
-    public String getBirth() {
-        return birth;
+    public String getDob() {
+        return dob;
     }
 
-    public void setBirth(String birth) {
-        this.birth = birth;
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 
     public String getPhoto() {
@@ -82,12 +82,12 @@ public class Staff {
         this.photo = photo;
     }
 
-    public String getDate() {
-        return date;
+    public String getCreated() {
+        return created;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setCreated(String created) {
+        this.created = created;
     }
 
     public int getStatus() {

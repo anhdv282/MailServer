@@ -1,9 +1,11 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%-- 
-    Document   : staff
-    Created on : Jul 16, 2014, 8:35:43 PM
+    Document   : staffStudentByCourse
+    Created on : Aug 1, 2014, 11:25:43 AM
     Author     : DANG
 --%>
+
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
@@ -40,7 +42,7 @@
     <body class="skin-blue">
         <!-- header logo: style can be found in header.less -->
         <header class="header">
-            <a href="index.html" class="logo">
+            <a href="home.jsp" class="logo">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
                 <img src="img/logo.png"/>
                 Stark Institute
@@ -133,9 +135,9 @@
                             </ul>
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
-
+                        
                         <!-- Tasks: style can be found in dropdown.less -->
-
+                        
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -205,7 +207,7 @@
                         <li>
                             <a href="<s:url action="viewStaffInbox"/>"><!-- action><-->
                                 <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                                <small class="badge pull-right bg-yellow">12</small>
+                                
                             </a>
                         </li>
                         
@@ -217,17 +219,52 @@
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
-                <section class="content-header no-margin">
-                    <h1 class="text-center">
-                        Mailbox
+                <section class="content-header">
+                    <h1>
+                        Home
+                        <small>Courses</small>
                     </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                        <li class="active">Courses</li>
+                    </ol>
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <!-- MAILBOX BEGIN -->
-                    Student by Course
 
+                    <!-- Small boxes (Stat box) -->
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Courses</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Adddress</th>
+                                        <th>Photo</th>
+                                        <th>DOB</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <s:iterator var="c" value="lst">
+                                    <tr>
+                                        <td><s:property value="#c.name"/></td>
+                                        <td><s:property value="#c.emailId"/></td>
+                                        <td><s:property value="#c.address"/></td>
+                                        <td><s:property value="#c.photo"/></td>
+                                        <td><s:property value="#c.dob"/></td>
+                                    </tr>
+                                    </s:iterator>
+                                </tbody>
+
+                            </table>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
+                    
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -262,10 +299,10 @@
 
         <!-- AdminLTE App -->
         <script src="js/AdminLTE/app.js" type="text/javascript"></script>
-
+        
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
         <script src="js/AdminLTE/dashboard.js" type="text/javascript"></script>     
-
+        
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
 

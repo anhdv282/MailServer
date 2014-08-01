@@ -31,7 +31,8 @@ public class CourseDAO {
             ResultSet rs = stm.executeQuery();
             while(rs.next()){
                 Course course = new Course();                
-                course.setCourseName(rs.getString(1));                
+                course.setCourseName(rs.getString(1)); 
+                course.setCourseId(rs.getInt(2));
                 lst.add(course);
             }
             conn.close();
