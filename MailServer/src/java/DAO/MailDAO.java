@@ -34,15 +34,16 @@ public class MailDAO {
             stm.setString(1, account.getEmail());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Mail mail = new Mail();
-                mail.setId(rs.getInt(1));
-                Account a = new Account();
-                a.setEmail(rs.getString(2));
-                mail.setSender(a);
-                mail.setSubject(rs.getString(3));
-                mail.setContent(rs.getString(4));
-                mail.setDate(rs.getString(5));
-                mail.setStatus(rs.getInt(6));
+//                Mail mail = new Mail();
+//                mail.setId(rs.getInt(1));
+//                Account a = new Account();
+//                a.setEmail(rs.getString(2));
+//                mail.setSender(a);
+//                mail.setSubject(rs.getString(3));
+//                mail.setContent(rs.getString(4));
+//                mail.setDate(rs.getString(5));
+//                mail.setStatus(rs.getInt(6));
+                Mail mail = getMailByID(rs.getInt(1));
                 mails.add(mail);
             }
             con.close();
@@ -60,13 +61,14 @@ public class MailDAO {
             stm.setString(1, account.getEmail());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Mail mail = new Mail();
-                mail.setId(rs.getInt(1));
-                mail.setSender(account);
-                mail.setSubject(rs.getString(3));
-                mail.setContent(rs.getString(4));
-                mail.setDate(rs.getString(5));
-                mail.setStatus(rs.getInt(6));
+//                Mail mail = new Mail();
+//                mail.setId(rs.getInt(1));
+//                mail.setSender(account);
+//                mail.setSubject(rs.getString(3));
+//                mail.setContent(rs.getString(4));
+//                mail.setDate(rs.getString(5));
+//                mail.setStatus(rs.getInt(6));
+                Mail mail = getMailByID(rs.getInt(1));
                 mails.add(mail);
             }
             con.close();
@@ -118,8 +120,8 @@ public class MailDAO {
             CallableStatement stm = con.prepareCall("{call GetMailByID(?)}");
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
-                Mail mail = new Mail();
+            Mail mail = new Mail();
+            while(rs.next()){
                 mail.setId(rs.getInt(1));
                 Account sender = new Account();
                 sender.setEmail(rs.getString(2));
@@ -128,15 +130,12 @@ public class MailDAO {
                 mail.setContent(rs.getString(5));
                 mail.setDate(rs.getString(6));
                 mail.setStatus(rs.getInt(7));
-                while(rs.next()){
-                    Account receiver = new Account();
-                    receiver.setEmail(rs.getString(3));
-                    mail.getReceivers().add(receiver);
-                }
-                con.close();
-                return mail;
+                Account receiver = new Account();
+                receiver.setEmail(rs.getString(3));
+                mail.getReceivers().add(receiver);
             }
-            
+            con.close();
+            return mail;
         } catch (SQLException ex) {
             Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

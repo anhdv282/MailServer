@@ -246,7 +246,7 @@
                             <s:form action="SendMail" method="post" theme="simple">
                                 <div class="form-group">
 <!--                                    <input type="email" class="form-control" name="emailto" placeholder="Email to:" />-->
-                                    <s:textfield cssClass="form-control" name="receiver" type="email" placeholder="Email to:"/>
+                                    <s:textfield cssClass="form-control" name="receivers" type="text" placeholder="Email to:"/>
                                 </div>
                                 <div class="form-group">
 <!--                                    <input type="text" class="form-control" name="subject" placeholder="Subject" />-->
