@@ -188,7 +188,6 @@
                                     </tr>
                                     </s:iterator>
                                 </tbody>
-
                             </table>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->

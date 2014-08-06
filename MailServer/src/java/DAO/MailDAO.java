@@ -34,15 +34,6 @@ public class MailDAO {
             stm.setString(1, account.getEmail());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-//                Mail mail = new Mail();
-//                mail.setId(rs.getInt(1));
-//                Account a = new Account();
-//                a.setEmail(rs.getString(2));
-//                mail.setSender(a);
-//                mail.setSubject(rs.getString(3));
-//                mail.setContent(rs.getString(4));
-//                mail.setDate(rs.getString(5));
-//                mail.setStatus(rs.getInt(6));
                 Mail mail = getMailByID(rs.getInt(1));
                 mails.add(mail);
             }
@@ -61,13 +52,6 @@ public class MailDAO {
             stm.setString(1, account.getEmail());
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-//                Mail mail = new Mail();
-//                mail.setId(rs.getInt(1));
-//                mail.setSender(account);
-//                mail.setSubject(rs.getString(3));
-//                mail.setContent(rs.getString(4));
-//                mail.setDate(rs.getString(5));
-//                mail.setStatus(rs.getInt(6));
                 Mail mail = getMailByID(rs.getInt(1));
                 mails.add(mail);
             }
@@ -140,5 +124,43 @@ public class MailDAO {
             Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public List<Mail> searchSent(Account account, String search) {
+        List<Mail> mails = new ArrayList<>();
+        try {
+            Connection con = util.getConnection();
+            CallableStatement stm = con.prepareCall("{call SearchSent(?,?)}");
+            stm.setString(1, account.getEmail());
+            stm.setString(2, search);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Mail mail = getMailByID(rs.getInt(1));
+                mails.add(mail);
+            }
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mails;
+    }
+    
+    public List<Mail> searchInbox(Account account, String search) {
+        List<Mail> mails = new ArrayList<>();
+        try {
+            Connection con = util.getConnection();
+            CallableStatement stm = con.prepareCall("{call SearchInbox(?,?)}");
+            stm.setString(1, account.getEmail());
+            stm.setString(2, search);
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Mail mail = getMailByID(rs.getInt(1));
+                mails.add(mail);
+            }
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(MailDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return mails;
     }
 }

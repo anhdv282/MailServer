@@ -93,10 +93,12 @@
         <action name="viewStudentMailDetail" class="app.MailDetailActionSupport">
             <result name="success">studentMailDetail.jsp</result>
         </action>
-        
         <action name="viewStudentByCourse" class="app.ViewStudentByCourseActionSupport">
             <result name="success">staffStudentByCourse.jsp</result>
             <result name="admin">adminViewStudentByCourse.jsp</result>
+        </action>
+        <action name="searchInbox" class="app.SearchMailActionSupport">
+            <result name="success">mailResult.jsp</result>
         </action>
     </package>
 </struts>

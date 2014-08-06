@@ -245,7 +245,6 @@
                                                 <ul class="nav nav-pills nav-stacked">
                                                     <li class="header">Folders</li>
                                                     <li class="active"><a href="<s:url action="viewStaffInbox"/>"><i class="fa fa-inbox"></i> Inbox (14)</a></li>
-                                                    
                                                     <li><a href="<s:url action="viewStaffSent"/>"><i class="fa fa-mail-forward"></i> Sent</a></li>
                                                     
                                                 </ul>
@@ -273,18 +272,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6 search-form">
-                                                    <form action="#" class="text-right">
+                                                    <form class="text-right">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control input-sm" placeholder="Search">
+                                                            <input id="search" type="text" class="form-control input-sm" placeholder="Search">
                                                             <div class="input-group-btn">
-                                                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                                                <input type="button" id="btn" class="btn btn-sm btn-primary fa fa-search"/>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div><!-- /.row -->
 
-                                            <div class="table-responsive">
+                                            <div id="content" class="table-responsive">
                                                 <!-- THE MESSAGES -->
                                                 <table class="table table-mailbox">
                                                     <th>
@@ -357,7 +356,22 @@
 
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
-
+        
+        <!-- Ajax call for search function -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+               $("#btn").click(function(){
+                  $.ajax({
+                     url:'searchInbox.action?search='+$("#search").val(),
+                     dataType: 'html',
+                     success:function(result){
+                         $("#content").html(result);
+                     }
+                  });
+               }); 
+            });
+        </script>
     </body>
 </html>
 
