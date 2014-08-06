@@ -53,77 +53,9 @@
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
-                                <span class="label label-success">4</span>
+                                
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 4 messages</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li><!-- start message -->
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <p>new awesome theme?</p>
-                                            </a>
-                                        </li><!-- end message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar2.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    AdminLTE Design Team
-                                                    <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                </h4>
-                                                <p> new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Developers
-                                                    <small><i class="fa fa-clock-o"></i> Today</small>
-                                                </h4>
-                                                <p>a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar2.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Sales Department
-                                                    <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                </h4>
-                                                <p>a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Reviewers
-                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                </h4>
-                                                <p>Why?</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
-                            </ul>
+                            
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
                         
@@ -189,7 +121,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="active">
+                        <li >
                             <a href="../MailServer/admin.jsp">
                                 <i class="glyphicon glyphicon-calendar"></i><span>Events</span>
                             </a>
@@ -199,7 +131,7 @@
                                 <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="<s:url action="viewStudent"/>">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>
@@ -248,7 +180,7 @@
                                 <tbody>
                                    <s:iterator var="c" value="lst">
                                     <tr>
-                                        <td><a href="<s:url action="viewAdminStaffDetail"><s:param name="id" value="#c.id"/></s:url>"><s:property value="#c.name"/></a></td>
+                                        <td><a href="<s:url action="viewStudentById"><s:param name="id" value="#c.id"/></s:url>"><s:property value="#c.name"/></a></td>
                                         <td><s:property value="#c.emailId"/></td>
                                         <td><s:property value="#c.address"/></td>
                                         <td><s:property value="#c.photo"/></td>
@@ -260,7 +192,7 @@
                             </table>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
-                    <a href="#">Add Staff</a>
+                    <a href="#">Add Student</a>
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->

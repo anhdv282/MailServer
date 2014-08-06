@@ -54,7 +54,6 @@ public class EventDAO {
     public boolean addEvent(Event event) {
         try {
             Connection conn = util.getConnection();
-//            CallableStatement stm = conn.prepareCall("AddNewEvent(?,?,?,?)");
             CallableStatement stm = conn.prepareCall("{? = call AddNewEvent(?,?,?,?)}");
             stm.registerOutParameter(1, Types.INTEGER);
             stm.setString(2, event.getTitle());

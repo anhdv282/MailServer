@@ -1,6 +1,6 @@
 <%-- 
-    Document   : eventAdd
-    Created on : Jul 21, 2014, 10:59:30 AM
+    Document   : adminStudentDetail
+    Created on : Aug 4, 2014, 9:14:31 AM
     Author     : DANG
 --%>
 
@@ -53,77 +53,9 @@
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
-                                <span class="label label-success">4</span>
+                                
                             </a>
-                            <ul class="dropdown-menu">
-                                <li class="header">You have 4 messages</li>
-                                <li>
-                                    <!-- inner menu: contains the actual data -->
-                                    <ul class="menu">
-                                        <li><!-- start message -->
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar3.png" class="img-circle" alt="User Image"/>
-                                                </div>
-                                                <h4>
-                                                    Support Team
-                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                                </h4>
-                                                <p>new awesome theme?</p>
-                                            </a>
-                                        </li><!-- end message -->
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar2.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    AdminLTE Design Team
-                                                    <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                                </h4>
-                                                <p> new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Developers
-                                                    <small><i class="fa fa-clock-o"></i> Today</small>
-                                                </h4>
-                                                <p>a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar2.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Sales Department
-                                                    <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                                </h4>
-                                                <p>a new awesome theme?</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="pull-left">
-                                                    <img src="img/avatar.png" class="img-circle" alt="user image"/>
-                                                </div>
-                                                <h4>
-                                                    Reviewers
-                                                    <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                                </h4>
-                                                <p>Why?</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="footer"><a href="#">See All Messages</a></li>
-                            </ul>
+                            
                         </li>
                         <!-- Notifications: style can be found in dropdown.less -->
                         
@@ -189,7 +121,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li class="active">
+                        <li >
                             <a href="../MailServer/admin.jsp">
                                 <i class="glyphicon glyphicon-calendar"></i><span>Events</span>
                             </a>
@@ -199,7 +131,7 @@
                                 <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="<s:url action="viewStudent"/>">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>
@@ -215,50 +147,50 @@
                 </section>
                 <!-- /.sidebar -->
             </aside>
-
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        View Event
+                        Student
                         
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> View Event</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Student</a></li>
                         
                     </ol>
                 </section>
                 <section class="content">
-                    <div class="box">
+                    <s:set var="s" value="student"/>
+                    <div class="box box-info">
                         <div class="box-header">
-                            <h3 class="box-title">Event</h3>
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <h3 class="box-title">Student Detail</h3>
                         </div><!-- /.box-header -->
-                        <div class="box-body table-responsive">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>Author</th>
-                                        <th>Photo</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <s:iterator var="e" value="lst">
-                                    <tr>
-                                        <td><a href="<s:url action="eventDetail"><s:param name="id" value="#e.eventId"/></s:url>"><s:property value="#e.title"/></a></td>
-                                        <td><s:property value="#e.author"/></td>
-                                        <td><s:property value="#e.photo"/></td>
-                                        <td><s:property value="#e.date"/></td>
-                                    </tr>
-                                    </s:iterator>
-                                </tbody>
-
-                            </table>
+                        <div class="box-body">
+                            
+                            <div class="callout callout-info">
+                                <h4>Name</h4>
+                                <p><s:property value="#s.name"/></p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>Email</h4>
+                                <p><s:property value="#s.emailId"/></p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>Address</h4>
+                                <p><s:property value="#s.address"/></p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>Dob</h4>
+                                <p><s:property value="#s.dob"/></p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>Photo</h4>
+                                <p><img src="img/<s:property value="#s.photo"/>.png"/></p>
+                            </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
-                    <a href="../MailServer/adminAddEvent.jsp">Add Event</a>
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -280,3 +212,4 @@
 
     </body>
 </html>
+

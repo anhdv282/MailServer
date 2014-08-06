@@ -230,46 +230,37 @@
                     </ol>
                 </section>
                 <section class="content">
-
                     <div class="box box-warning">
-                                <div class="box-header">
-                                    <h3 class="box-title">General Elements</h3>
-                                </div><!-- /.box-header -->
-                                <div class="box-body">
-                                    <s:form role="form" action="addEvent" method="POST" theme="simple">
-                                        <!-- text input -->
-                                        <div class="form-group">
-                                            <label>Title</label>                                            
-                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="title"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Author</label>
-                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="author"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Photo</label>
-                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="photo"/>
-                                        </div>
-<!--                                        <div class="form-group">
-                                            <label for="exampleInputFile">Photo</label>
-                                            <input type="file" id="exampleInputFile">
-                                            
-                                        </div>-->
-                                        <!-- textarea -->
-                                     
-                                        <div class="form-group">
-                                            <label>Content</label>
-                                            
-                                            <s:textarea cssClass="form-control" rows="4" placeholder="Content..." name="content"></s:textarea>
-                                        </div> 
-                                        <div class="box-footer">
-                                            
-                                        <s:submit cssClass="btn btn-primary" type="submit" value="Submit"/>
-                                        </div>   
-                                    </s:form>
-                                </div><!-- /.box-body -->
-                                
-                            </div><!-- /.box -->
+                        <div class="box-header">
+                            <h3 class="box-title">General Elements</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <s:form role="form" action="addEvent" method="POST" theme="simple">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Title</label>                                            
+                                    <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="title"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Author</label>
+                                    <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="author"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Photo</label>
+                                    <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="photo"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>Content</label>
+
+                                    <s:textarea cssClass="form-control" rows="4" placeholder="Content..." name="content"></s:textarea>
+                                    </div> 
+                                    <div class="box-footer">
+
+                                    <s:submit cssClass="btn btn-primary" type="submit" value="Submit"/>
+                                </div>   
+                            </s:form>
+                        </div><!-- /.box-body -->
+                    </div><!-- /.box -->
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->

@@ -16,7 +16,7 @@ import entities.Event;
  */
 public class UpdateEventActionSupport extends ActionSupport {
     private int eventId;
-    EventDAO dAO = new EventDAO();
+
     public int getEventId() {
         return eventId;
     }
@@ -24,6 +24,52 @@ public class UpdateEventActionSupport extends ActionSupport {
     public void setEventId(int eventId) {
         this.eventId = eventId;
     }
+    private String title;
+    private String author;
+    private String content;
+    private String photo;
+    EventDAO dAO = new EventDAO();
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public EventDAO getdAO() {
+        return dAO;
+    }
+
+    public void setdAO(EventDAO dAO) {
+        this.dAO = dAO;
+    }
+    
     
     public UpdateEventActionSupport() {
     }
@@ -31,7 +77,11 @@ public class UpdateEventActionSupport extends ActionSupport {
     public String execute() throws Exception {
         Event event = new Event();
         event.setEventId(eventId);
-        if(dAO.deleteEvent(event)){
+        event.setAuthor(author);
+        event.setContent(content);
+        event.setPhoto(photo);
+        event.setTitle(title);
+        if(dAO.updateEvent(event)){
             return "success";
         }
         return "fail";

@@ -46,4 +46,19 @@ public class LoginDAO {
         return check;
     }
     
+    public boolean changePass(Account account) {
+        boolean check = false;
+        try {
+            Connection con = util.getConnection();
+            CallableStatement stm = con.prepareCall("{call ChangePass(?,?)}");            
+            stm.setString(1, account.getEmail());
+            stm.setString(2, account.getPass());
+            stm.executeUpdate();
+            check = true;
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return check;
+    }
 }

@@ -101,7 +101,7 @@
                         </li>
                         
                         <li>
-                            <a href="#">
+                            <a href="<s:url action="viewStaff"/>">
                                 <i class="glyphicon glyphicon-user"></i> <span>Staffs</span>                                
                             </a>
                         </li>

@@ -78,6 +78,52 @@ public class StudentDAO {
         }
         return null;
     }
+    
+    public Student studentByMail(String mailId){
+        
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call GetStudentByMail(?)}");
+            stm.setString(1, mailId);
+            ResultSet rs = stm.executeQuery();
+            if(rs.next()){
+                Student s = new Student();
+                s.setId(rs.getInt(1));
+                s.setEmailId(rs.getString(2));
+                s.setName(rs.getString(3));
+                s.setAddress(rs.getString(4));
+                s.setDob(rs.getString(5));
+                s.setPhoto(rs.getString(6));
+                s.setCreated(rs.getString(7));
+                s.setStatus(rs.getInt(8));
+                conn.close();
+                return s;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public boolean updateStudent(Student s){
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call UpdateStudent(?,?,?,?,?)}");
+            stm.setString(1, s.getEmailId());
+            stm.setString(2,s.getName());
+            stm.setString(3, s.getAddress());
+            stm.setString(4, s.getDob());
+            stm.setString(5, s.getPhoto());
+            stm.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     public List<Student> loadStudentByCourse(int id){
         List<Student> lst = new ArrayList<Student>();
         try {
@@ -94,5 +140,23 @@ public class StudentDAO {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lst;
+    }
+    
+    public boolean addStudent(Student s){
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call AddStudent(?,?,?,?,?)}");
+            stm.setString(1, s.getEmailId());
+            stm.setString(2,s.getName());
+            stm.setString(3, s.getAddress());
+            stm.setString(4, s.getDob());
+            stm.setString(5, s.getPhoto());
+            stm.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

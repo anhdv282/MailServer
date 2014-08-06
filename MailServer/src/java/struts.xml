@@ -10,26 +10,45 @@
             <result name="admin" type="redirect">admin.jsp</result>
             <result name="staff" type="redirect">staff.jsp</result>
             <result name="student" type="redirect">student.jsp</result>
+            <result name="changePass" type="redirect">changePass.jsp</result>
             <result name="fail">404.jsp</result>
         </action>
         <action name="viewStudent" class="app.ViewStudentActionSupport">
             <result name="success"></result>
             <result name="admin">adminViewStudent.jsp</result>
         </action>
+        <action name="viewStudentById" class="app.ViewStudentDetailActionSupport">
+            <result name="student">studentProfile.jsp</result>
+            <result name="admin">adminViewStudentDetail.jsp</result>
+            <result name="fail">404.jsp</result>
+        </action>
+        <action name="updateStudent" class="app.UpdateStudentActionSupport">
+            <result name="student">student.jsp</result>
+        </action>
         <action name="viewStaff" class="app.ViewStaffActionSupport">
-            <result name="success"></result>
+            <result name="success">eventStaff.jsp</result>
             <result name="admin">adminViewStaff.jsp</result>
         </action>
-        
+        <action name="viewStaffById" class="app.ViewStaffDetailActionSupport">
+            <result name="success">staffProfile.jsp</result>
+            <result name="admin">adminViewStaffDetail.jsp</result>
+        </action>
+        <action name="updateStaff" class="app.UpdateStaffActionSupport">
+            <result name="staff">staff.jsp</result>
+        </action>
         <action name="viewEvent" class="app.ViewEventActionSupport">
             <result name="success">event.jsp</result>
             <result name="admin">adminViewEvent.jsp</result>
         </action>
         <action name="eventDetail" class="app.EventDetailActionSupport">
+            <result name="admin">adminUpdateEvent.jsp</result>
             <result name="success">eventDetail.jsp</result>
         </action>
         <action name="Logout" class="app.LogoutActionSupport">
             <result name="success" type="redirect">home.jsp</result>
+        </action>
+        <action name="changePass" class="app.ChangePassActionSupport">
+            <result name="success">changeSuccess.jsp</result>
         </action>
         <action name="SendMail" class="app.MailActionSupport">
             <result name="fail">404.jsp</result>
@@ -39,6 +58,9 @@
         <action name="addEvent" class="app.AddEventActionSupport">
             <result name="success">home.jsp</result>
             <result name="fail">404.jsp</result>
+        </action>
+        <action name="updateEvent" class="app.UpdateEventActionSupport">
+            <result name="success">admin.jsp</result>
         </action>
         <action name="viewStaffInbox" class="app.ViewInboxActionSupport">
             <result name="success">staffInbox.jsp</result>
@@ -56,6 +78,12 @@
         <action name="viewAssignment" class="">
             <result name="success">studentAssignment.jsp</result>
         </action>
+        <action name="addStudent" class="app.AddStudentActionSupport">
+            <result name="success" type="redirectAction">viewStudent</result>
+        </action>
+        <action name="addStaff" class="app.AddStaffActionSupport">
+            <result name="success" type="redirectAction">viewStaff</result>
+        </action>
         <action name="viewStudentInbox" class="app.ViewInboxActionSupport">
             <result name="success">studentInbox.jsp</result>
         </action>
@@ -65,9 +93,7 @@
         <action name="viewStudentMailDetail" class="app.MailDetailActionSupport">
             <result name="success">studentMailDetail.jsp</result>
         </action>
-        <action name="viewCourseDetail" class="app.CourseDetailActionSupport">
-            <result name="success">staffCourseDetail.jsp</result>
-        </action>
+        
         <action name="viewStudentByCourse" class="app.ViewStudentByCourseActionSupport">
             <result name="success">staffStudentByCourse.jsp</result>
             <result name="admin">adminViewStudentByCourse.jsp</result>

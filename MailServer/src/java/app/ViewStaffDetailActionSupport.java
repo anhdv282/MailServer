@@ -6,28 +6,27 @@
 
 package app;
 
-import DAO.EventDAO;
+import DAO.StaffDAO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entities.Account;
-import entities.Event;
+import entities.Staff;
 import java.util.Map;
 
 /**
  *
  * @author DANG
  */
-
-public class EventDetailActionSupport extends ActionSupport {
-    Event event;
+public class ViewStaffDetailActionSupport extends ActionSupport {
+    Staff staff;
     int id;
 
-    public Event getEvent() {
-        return event;
+    public Staff getStaff() {
+        return staff;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     public int getId() {
@@ -37,20 +36,18 @@ public class EventDetailActionSupport extends ActionSupport {
     public void setId(int id) {
         this.id = id;
     }
-    
-    public EventDetailActionSupport() {
+    public ViewStaffDetailActionSupport() {
     }
     
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
         Account account = (Account)session.get("User");
-        EventDAO eventDAO = new EventDAO();
-        event = eventDAO.loadEventById(id);
+        StaffDAO staffDAO = new StaffDAO();
+        staff = staffDAO.getStaffById(id);
         if(account!= null && account.getAccType().equalsIgnoreCase("admin"))
         {
             return "admin";
         }
-        
         return "success";
     }
     

@@ -1,11 +1,11 @@
 <%-- 
-    Document   : eventAdd
-    Created on : Jul 21, 2014, 10:59:30 AM
+    Document   : adminAddStaff
+    Created on : Aug 1, 2014, 12:02:35 PM
     Author     : DANG
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -140,7 +140,7 @@
                                 <li class="user-header bg-light-blue">
                                     <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        <%=session.getAttribute("User").toString()%> 
+                                        <%=session.getAttribute("User").toString()%>
                                         <small>Administrator</small>
                                     </p>
                                 </li>
@@ -152,7 +152,7 @@
                                         <a href="#" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="<s:url action="Logout"/>" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -172,7 +172,7 @@
                             <img src="img/avatar3.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, <%=session.getAttribute("User").toString()%></p>
+                            <p>Hello,<%=session.getAttribute("User").toString()%></p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
@@ -221,44 +221,51 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        View Event
+                        Add Staff
                         
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> View Event</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Add Staff</a></li>
                         
                     </ol>
                 </section>
                 <section class="content">
-                    <div class="box">
-                        <div class="box-header">
-                            <h3 class="box-title">Event</h3>
-                        </div><!-- /.box-header -->
-                        <div class="box-body table-responsive">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>Author</th>
-                                        <th>Photo</th>
-                                        <th>Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <s:iterator var="e" value="lst">
-                                    <tr>
-                                        <td><a href="<s:url action="eventDetail"><s:param name="id" value="#e.eventId"/></s:url>"><s:property value="#e.title"/></a></td>
-                                        <td><s:property value="#e.author"/></td>
-                                        <td><s:property value="#e.photo"/></td>
-                                        <td><s:property value="#e.date"/></td>
-                                    </tr>
-                                    </s:iterator>
-                                </tbody>
 
-                            </table>
-                        </div><!-- /.box-body -->
-                    </div><!-- /.box -->
-                    <a href="../MailServer/adminAddEvent.jsp">Add Event</a>
+                    <div class="box box-warning">
+                                <div class="box-header">
+                                    <h3 class="box-title">General Elements</h3>
+                                </div><!-- /.box-header -->
+                                <div class="box-body">
+                                    <s:form role="form" action="addStaff" method="POST" theme="simple">
+                                        <!-- text input -->
+                                        <div class="form-group">
+                                            <label>Email</label>                                            
+                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="emailId"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Name</label>
+                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="name"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Address</label>
+                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="address"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Dob</label>
+                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="dob"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Photo</label>
+                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="photo"/>
+                                        </div>
+                                        <div class="box-footer">
+                                            
+                                        <s:submit cssClass="btn btn-primary" type="submit" value="Submit"/>
+                                        </div>   
+                                    </s:form>
+                                </div><!-- /.box-body -->
+                                
+                            </div><!-- /.box -->
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -280,3 +287,4 @@
 
     </body>
 </html>
+

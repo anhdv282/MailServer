@@ -148,23 +148,25 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
-                                        <th>Address</th>
-                                        <th>DOB</th>
+                                        <th>Email</th>
+                                        <th>Adddress</th>
                                         <th>Photo</th>
+                                        <th>DOB</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                   <s:iterator var="c" value="lst">
                                     <tr>
-                                        <td>Trident</td>
-                                        <td>Internet
-                                            Explorer 4.0</td>
-                                        <td>Win 95+</td>
-                                        <td> 4</td>
-                                        <td>X</td>
+                                        <td><a href="<s:url action="viewAdminStaffDetail"><s:param name="id" value="#c.id"/></s:url>"><s:property value="#c.name"/></a></td>
+                                        <td><s:property value="#c.emailId"/></td>
+                                        <td><s:property value="#c.address"/></td>
+                                        <td><s:property value="#c.photo"/></td>
+                                        <td><s:property value="#c.dob"/></td>
                                     </tr>
+                                    </s:iterator>
                                 </tbody>
+
                             </table>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->

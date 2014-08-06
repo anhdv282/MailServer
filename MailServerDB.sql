@@ -139,44 +139,44 @@ VALUES ('After a solid iOS developer?','Viet Anh','Nam sollicitudin consectetur 
 go
 INSERT INTO tblStaff(emailId,name,[address],dob,photo)
 VALUES 
-('staff1@fpt.com','staff 1','Ha Noi','1993-11-12','staff1.jpg'),
-('staff2@fpt.com','staff 2','Ho Chi Minh','1992-10-12','staff2.jpg'),
-('staff3@fpt.com','staff 3','Hai Phong','1990-12-22','staff3.jpg'),
-('staff4@fpt.com','staff 4','Ha Noi','1994-12-02','staff4.jpg'),
-('staff5@fpt.com','staff 5','Ho Chi Minh','1993-04-12','staff5.jpg'),
-('staff6@fpt.com','staff 6','Hai Phong','1992-05-23','staff6.jpg')
+('staff1@fpt.com','staff 1','Ha Noi','1993-11-12','staff1'),
+('staff2@fpt.com','staff 2','Ho Chi Minh','1992-10-12','staff2'),
+('staff3@fpt.com','staff 3','Hai Phong','1990-12-22','staff3'),
+('staff4@fpt.com','staff 4','Ha Noi','1994-12-02','staff4'),
+('staff5@fpt.com','staff 5','Ho Chi Minh','1993-04-12','staff5'),
+('staff6@fpt.com','staff 6','Hai Phong','1992-05-23','staff1')
 
 INSERT INTO tblStudent(emailId,name,[address],dob,photo)
 VALUES
-('student1@fpt.com','student 1','Ha Noi','1993-11-12','student1.jpg'),
-('student2@fpt.com','student 2','Ho Chi Minh','1992-10-12','student2.jpg'),
-('student3@fpt.com','student 3','Hai Phong','1990-12-22','student3.jpg'),
-('student4@fpt.com','student 4','Da Nang','1994-12-02','student4.jpg'),
-('student5@fpt.com','student 5','Lao Cai','1993-04-12','student5.jpg'),
-('student6@fpt.com','student 6','Can Tho','1992-05-23','student6.jpg'),
-('student7@fpt.com','student 7','Ha Noi','1993-11-12','student7.jpg'),
-('student8@fpt.com','student 8','Ho Chi Minh','1992-10-12','student8.jpg'),
-('student9@fpt.com','student 9','Hai Phong','1990-12-22','student9.jpg'),
-('student10@fpt.com','student 10','Da Nang','1994-12-02','student10.jpg'),
-('student11@fpt.com','student 11','Lao Cai','1993-04-12','student11.jpg'),
-('student12@fpt.com','student 12','Can Tho','1992-05-23','student12.jpg'),
-('student13@fpt.com','student 13','Ha Noi','1993-11-12','student13.jpg'),
-('student14@fpt.com','student 14','Ho Chi Minh','1992-10-12','student14.jpg'),
-('student15@fpt.com','student 15','Hai Phong','1990-12-22','student15.jpg'),
-('student16@fpt.com','student 16','Da Nang','1994-12-02','student16.jpg'),
-('student17@fpt.com','student 17','Lao Cai','1993-04-12','student17.jpg'),
-('student18@fpt.com','student 18','Can Tho','1992-05-23','student18.jpg'),
-('student19@fpt.com','student 19','Ha Noi','1993-11-12','student19.jpg'),
-('student20@fpt.com','student 20','Ho Chi Minh','1992-10-12','student20.jpg'),
-('student21@fpt.com','student 21','Hai Phong','1990-12-22','student21.jpg'),
-('student22@fpt.com','student 22','Da Nang','1994-12-02','student22.jpg'),
-('student23@fpt.com','student 23','Lao Cai','1993-04-12','student23.jpg'),
-('student24@fpt.com','student 24','Can Tho','1992-05-23','student24.jpg'),
-('student25@fpt.com','student 25','Ha Noi','1993-11-12','student25.jpg'),
-('student26@fpt.com','student 26','Ho Chi Minh','1992-10-12','student26.jpg'),
-('student27@fpt.com','student 27','Hai Phong','1990-12-22','student27.jpg'),
-('student28@fpt.com','student 28','Da Nang','1994-12-02','student28.jpg'),
-('student29@fpt.com','student 29','Lao Cai','1993-04-12','student29.jpg')
+('student1@fpt.com','student 1','Ha Noi','1993-11-12','student1'),
+('student2@fpt.com','student 2','Ho Chi Minh','1992-10-12','student2'),
+('student3@fpt.com','student 3','Hai Phong','1990-12-22','student3'),
+('student4@fpt.com','student 4','Da Nang','1994-12-02','student4'),
+('student5@fpt.com','student 5','Lao Cai','1993-04-12','student5'),
+('student6@fpt.com','student 6','Can Tho','1992-05-23','student1'),
+('student7@fpt.com','student 7','Ha Noi','1993-11-12','student1'),
+('student8@fpt.com','student 8','Ho Chi Minh','1992-10-12','student2'),
+('student9@fpt.com','student 9','Hai Phong','1990-12-22','student3'),
+('student10@fpt.com','student 10','Da Nang','1994-12-02','student1'),
+('student11@fpt.com','student 11','Lao Cai','1993-04-12','student1'),
+('student12@fpt.com','student 12','Can Tho','1992-05-23','student1'),
+('student13@fpt.com','student 13','Ha Noi','1993-11-12','student1'),
+('student14@fpt.com','student 14','Ho Chi Minh','1992-10-12','student4'),
+('student15@fpt.com','student 15','Hai Phong','1990-12-22','student4'),
+('student16@fpt.com','student 16','Da Nang','1994-12-02','student5'),
+('student17@fpt.com','student 17','Lao Cai','1993-04-12','student5'),
+('student18@fpt.com','student 18','Can Tho','1992-05-23','student3'),
+('student19@fpt.com','student 19','Ha Noi','1993-11-12','student1'),
+('student20@fpt.com','student 20','Ho Chi Minh','1992-10-12','student2'),
+('student21@fpt.com','student 21','Hai Phong','1990-12-22','student3'),
+('student22@fpt.com','student 22','Da Nang','1994-12-02','student4'),
+('student23@fpt.com','student 23','Lao Cai','1993-04-12','student5'),
+('student24@fpt.com','student 24','Can Tho','1992-05-23','student1'),
+('student25@fpt.com','student 25','Ha Noi','1993-11-12','student2'),
+('student26@fpt.com','student 26','Ho Chi Minh','1992-10-12','student3'),
+('student27@fpt.com','student 27','Hai Phong','1990-12-22','student4'),
+('student28@fpt.com','student 28','Da Nang','1994-12-02','student5'),
+('student29@fpt.com','student 29','Lao Cai','1993-04-12','student2')
 
 INSERT INTO tblCourse(courseName,teacherId)
 VALUES
@@ -303,6 +303,15 @@ from tblAccount as A
 where A.[status] = 1 and A.emailId = @emailId and A.pass = @pass
 
 go
+create proc ChangePass
+@emailId nvarchar(100),
+@pass nvarchar(100)
+as
+update tblAccount
+set pass = @pass,
+	changePass = 1
+where emailId = @emailId
+go
 
 create proc InsertMail
 @senderId nvarchar(100),
@@ -368,17 +377,52 @@ select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[statu
 from tblStudent as S
 order by S.created desc
 go
+--ok
+create proc UpdateStudent
+@emailId nvarchar(100),
+@name nvarchar(100),
+@address nvarchar(max),
+@dob date,
+@photo nvarchar(max)
+as
+update tblStudent
+set name = @name,
+	[address] = @address,
+	dob = @dob,
+	photo = @photo
+where emailId = @emailId
 
+go
+create proc AddStudent
+@emailId nvarchar(100),
+@name nvarchar(100),
+@address nvarchar(max),
+@dob date,
+@photo nvarchar(max)
+as
+insert into tblAccount (emailId,pass,accType) VALUES (@emailId,'123456','student')
+insert into tblStudent (emailId,name,[address],dob,photo)
+VALUES (@emailId,@name,@address,@dob,@photo)
+
+
+go
 create proc GetStudentById
 @id int
 as
 select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStudent as S
 where S.studentId = @id
-order by S.created desc
-
+--order by S.created desc
 go
 
+create proc GetStudentByMail
+@emailId nvarchar(100)
+as
+select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStudent as S
+where S.emailId = @emailId
+
+go
 create proc GetAllStaff
 as
 select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
@@ -392,7 +436,43 @@ as
 select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStaff as S
 where S.staffId = @id
-order by S.created desc
+--order by S.created desc
+go
+
+create proc GetStaffByMail
+@emailId nvarchar(100)
+as
+select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStaff as S
+where S.emailId = @emailId
+
+go
+create proc UpdateStaff
+@emailId nvarchar(100),
+@name nvarchar(100),
+@address nvarchar(max),
+@dob date,
+@photo nvarchar(max)
+as
+update tblStaff
+set name = @name,
+	[address] = @address,
+	dob = @dob,
+	photo = @photo
+where emailId = @emailId
+
+go
+create proc AddStaff
+@emailId nvarchar(100),
+@name nvarchar(100),
+@address nvarchar(max),
+@dob date,
+@photo nvarchar(max)
+as
+insert into tblAccount (emailId,pass,accType) VALUES (@emailId,'123456','staff')
+insert into tblStaff (emailId,name,[address],dob,photo)
+VALUES (@emailId,@name,@address,@dob,@photo)
+
 go
 
 create view Course
@@ -417,3 +497,4 @@ select C.courseName, C.teacherId, C.studentId
 from Course as C
 where C.courseId = @courseId 
 
+select * from tblStudent
