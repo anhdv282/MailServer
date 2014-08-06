@@ -110,7 +110,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="<s:url action="viewStudentById"><s:param name="id" value="1"/></s:url>" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="<s:url action="viewStudentById"/>" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="<s:url action="Logout"/>" class="btn btn-default btn-flat">Sign out</a>

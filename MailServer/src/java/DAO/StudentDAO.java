@@ -21,31 +21,41 @@ import util.DbUtil;
  * @author DANG
  */
 public class StudentDAO {
-
+    private int pSize = 6;
+    private int total;
     private DbUtil util = new DbUtil();
 
-    public List<Student> loadAllStudent() {
+    public List<Student> loadAllStudent(String page) {
         List<Student> lst = new ArrayList<Student>();
-        try {
-                
+        int index = Integer.valueOf(page);
+        int count = 0;
+        int pageTotal = 0;
+        try {   
             Connection conn = util.getConnection();
             CallableStatement stm = conn.prepareCall("{call GetAllStudent}");
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                Student s = new Student();
-                s.setId(rs.getInt(1));
-                s.setEmailId(rs.getString(2));
-                s.setName(rs.getString(3));
-                s.setAddress(rs.getString(4));
-                s.setDob(rs.getString(5));
-                s.setPhoto(rs.getString(6));
-                s.setCreated(rs.getString(7));
-                s.setStatus(rs.getInt(8));
-                lst.add(s);
-                
-                
+                count++;
+                if((count <= index * pSize)&&(count >= ((index - 1)*pSize + 1))){
+                    Student s = new Student();
+                    s.setId(rs.getInt(1));
+                    s.setEmailId(rs.getString(2));
+                    s.setName(rs.getString(3));
+                    s.setAddress(rs.getString(4));
+                    s.setDob(rs.getString(5));
+                    s.setPhoto(rs.getString(6));
+                    s.setCreated(rs.getString(7));
+                    s.setStatus(rs.getInt(8));
+                    lst.add(s);
+                } 
             }
             conn.close();
+            if(count%pSize == 0){
+                pageTotal = count / pSize;
+            }else{
+                pageTotal = count / pSize +1;
+            }
+            setTotal(pageTotal);
         } catch (SQLException ex) {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -159,4 +169,13 @@ public class StudentDAO {
         }
         return false;
     }
+    
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+    
 }

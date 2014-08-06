@@ -235,9 +235,11 @@
                     <div class="box box-info">
                         <div class="box-header">
                             <i class="glyphicon glyphicon-info-sign"></i>
-                            <h3 class="box-title">Staff Profile</h3>
+                            <h3 class="box-title">Staff Profile</h3> 
                         </div><!-- /.box-header -->
+                        
                         <div class="box-body">
+                            <a href="../MailServer/changePass.jsp">Change Password</a>
                             <s:form method="POST" theme="simple" action="updateStaff">
                             <div class="callout callout-info">
                                 <h4>Name : <s:property value="#s.name"/></h4>
@@ -258,9 +260,12 @@
                                 <s:textfield type="text" name="photo" cssClass="form-control" placeholder="Photo"/>
                             </div>
                             <s:submit value="Update" cssClass="btn bg-olive btn-block" type="submit"/>
+                            
                             </s:form>
+                            
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
+                    
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->

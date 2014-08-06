@@ -6,6 +6,8 @@
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="mrBean" scope="session" class="app.ViewStudentActionSupport"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -187,9 +189,15 @@
                                         <td><s:property value="#c.dob"/></td>
                                     </tr>
                                     </s:iterator>
+                                    
+                                     
                                 </tbody>
 
                             </table>
+                            Hello
+                            <s:iterator var="i" value="arr">
+                                <a href="<s:url action="viewStudent"><s:param value="#i" name="page"/></s:url>">%{i}</a>
+                            </s:iterator>  
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
                     <a href="#">Add Student</a>

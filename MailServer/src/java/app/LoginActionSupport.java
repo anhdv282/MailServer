@@ -47,11 +47,11 @@ public class LoginActionSupport extends ActionSupport {
         if(loginDAO.checkLogin(account)){
             Map session = ActionContext.getContext().getSession();
             session.put("User", account);
-            if(account.isChangePass()){
+//            if(account.isChangePass()){
                 return account.getAccType();
-            }
-            else
-                return "changePass";
+//            }
+//            else
+//                return "changePass";
         }
         return "fail";
     }

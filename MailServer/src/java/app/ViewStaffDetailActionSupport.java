@@ -46,9 +46,15 @@ public class ViewStaffDetailActionSupport extends ActionSupport {
         staff = staffDAO.getStaffById(id);
         if(account!= null && account.getAccType().equalsIgnoreCase("admin"))
         {
-            return "admin";
+            staff = staffDAO.getStaffById(id);
+            return account.getAccType();
         }
-        return "success";
+        if(account!= null && account.getAccType().equalsIgnoreCase("staff"))
+        {
+            staff = staffDAO.getStaffByMail(account.getEmail());
+            return account.getAccType();
+        }
+        return "fail";
     }
     
 }
