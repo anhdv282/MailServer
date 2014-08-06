@@ -10,6 +10,7 @@
             <result name="admin" type="redirect">admin.jsp</result>
             <result name="staff" type="redirect">staff.jsp</result>
             <result name="student" type="redirect">student.jsp</result>
+            <result name="changePass" type="redirect">changePass.jsp</result>
             <result name="fail">404.jsp</result>
         </action>
         <action name="viewStudent" class="app.ViewStudentActionSupport">
@@ -29,9 +30,8 @@
             <result name="admin">adminViewStaff.jsp</result>
         </action>
         <action name="viewStaffById" class="app.ViewStaffDetailActionSupport">
-            <result name="staff">staffProfile.jsp</result>
+            <result name="success">staffProfile.jsp</result>
             <result name="admin">adminViewStaffDetail.jsp</result>
-            <result name="fail">404.jsp</result>
         </action>
         <action name="updateStaff" class="app.UpdateStaffActionSupport">
             <result name="staff">staff.jsp</result>
@@ -93,11 +93,12 @@
         <action name="viewStudentMailDetail" class="app.MailDetailActionSupport">
             <result name="success">studentMailDetail.jsp</result>
         </action>
-        
         <action name="viewStudentByCourse" class="app.ViewStudentByCourseActionSupport">
             <result name="success">staffStudentByCourse.jsp</result>
             <result name="admin">adminViewStudentByCourse.jsp</result>
         </action>
-        
+        <action name="searchInbox" class="app.SearchMailActionSupport">
+            <result name="success">mailResult.jsp</result>
+        </action>
     </package>
 </struts>

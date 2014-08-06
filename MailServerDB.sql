@@ -354,6 +354,32 @@ group by MD.mailId,M.senderId, M.[subject], M.content, M.created, M.[status]
 order by created desc
 
 go
+
+create proc SearchInbox
+@receiverId nvarchar(100),
+@search nvarchar(100)
+as
+select MD.mailId, M.senderId,M.[subject], M.content, M.created, M.[status]
+from tblMailDetail as MD join tblMail as M
+on MD.mailId = M.mailId
+where MD.receiverId = @receiverId and (M.senderId like '%' + @search + '%' or M.[subject] like '%' + @search + '%')
+group by MD.mailId,M.senderId, M.[subject], M.content, M.created, M.[status]
+order by created desc
+
+go
+
+create proc SearchSent
+@senderId nvarchar(100),
+@search nvarchar(100)
+as
+select MD.mailId, M.senderId,M.[subject], M.content, M.created, M.[status]
+from tblMailDetail as MD join tblMail as M
+on MD.mailId = M.mailId
+where M.senderId = @senderId and (MD.receiverId like '%' + @search + '%' or M.[subject] like '%' + @search + '%')
+group by MD.mailId,M.senderId, M.[subject], M.content, M.created, M.[status]
+order by created desc
+
+go
 create proc GetMailByID
 @Id int
 as
@@ -370,14 +396,25 @@ select A.emailId, A.pass, A.accType, A.changePass, A.[status]
 from tblAccount as A
 
 go
---ok
+
 create proc GetAllStudent
 as
 select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStudent as S
 order by S.created desc
+
 go
---ok
+
+create proc SearchStudent
+@search nvarchar(100)
+as
+select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStudent as S
+where S.name like '%' + @search + '%' or S.emailId like '%' + @search + '%'
+order by S.created desc
+
+go
+
 create proc UpdateStudent
 @emailId nvarchar(100),
 @name nvarchar(100),
@@ -412,7 +449,7 @@ as
 select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStudent as S
 where S.studentId = @id
---order by S.created desc
+
 go
 
 create proc GetStudentByMail
@@ -423,11 +460,23 @@ from tblStudent as S
 where S.emailId = @emailId
 
 go
+
 create proc GetAllStaff
 as
 select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStaff as S
 order by S.created desc
+
+go
+
+create proc SearchStaff
+@search nvarchar(100)
+as
+select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
+from tblStaff as S
+where S.name like '%' + @search + '%' or S.emailId like '%' + @search + '%'
+order by S.created desc
+
 go
 
 create proc GetStaffById
@@ -436,7 +485,7 @@ as
 select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStaff as S
 where S.staffId = @id
---order by S.created desc
+
 go
 
 create proc GetStaffByMail

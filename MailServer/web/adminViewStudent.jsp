@@ -192,7 +192,6 @@
                                     
                                      
                                 </tbody>
-
                             </table>
                             Hello
                             <s:iterator var="i" value="arr">
