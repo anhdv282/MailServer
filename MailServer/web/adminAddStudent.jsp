@@ -181,22 +181,27 @@
                                         <div class="form-group">
                                             <label>Email</label>                                            
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="emailId"/>
+                                            <s:fielderror fieldName="emailId" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Name</label>
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="name"/>
+                                            <s:fielderror fieldName="name" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Address</label>
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="address"/>
+                                            <s:fielderror fieldName="address" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Dob</label>
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="dob"/>
+                                            <s:fielderror fieldName="dob" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Photo</label>
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="photo"/>
+                                            <s:fielderror fieldName="photo" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="box-footer">
                                             

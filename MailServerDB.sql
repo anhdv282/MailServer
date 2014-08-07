@@ -354,6 +354,15 @@ from tblFeedback as F
 where F.feedId = @feedId 
 
 go
+
+create proc CheckMail
+@emailId nvarchar(100)
+as
+select * 
+from tblAccount as A
+where A.emailId = @emailId
+
+go
 create proc InsertMail
 @senderId nvarchar(100),
 @title nvarchar(100),
