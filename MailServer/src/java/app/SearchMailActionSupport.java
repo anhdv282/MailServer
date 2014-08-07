@@ -21,6 +21,16 @@ import java.util.Map;
 public class SearchMailActionSupport extends ActionSupport {
     
     String search;
+    String action;
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+    
     private List<Mail> mails;
 
     public String getSearch() {
@@ -46,7 +56,14 @@ public class SearchMailActionSupport extends ActionSupport {
         Map session = ActionContext.getContext().getSession();
         Account account = (Account)session.get("User");
         MailDAO mailDAO = new MailDAO();
-        mails = mailDAO.searchInbox(account, search);
+        
+        if(action.equalsIgnoreCase("sent")){
+            mails = mailDAO.searchSent(account, search);
+        }
+        else if(action.equalsIgnoreCase("inbox")){
+            mails = mailDAO.searchInbox(account, search);
+        }
+            
         return "success";
     }
     

@@ -275,22 +275,22 @@
                                                 <div class="col-sm-6 search-form">
                                                     <form action="#" class="text-right">
                                                         <div class="input-group">
-                                                            <input type="text" class="form-control input-sm" placeholder="Search">
+                                                            <input type="text" id="search" class="form-control input-sm" placeholder="Search">
                                                             <div class="input-group-btn">
-                                                                <button type="submit" name="q" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                                                <input id="btn" class="btn btn-sm btn-primary" type="button"/>
                                                             </div>
                                                         </div>
                                                     </form>
                                                 </div>
                                             </div><!-- /.row -->
 
-                                            <div class="table-responsive">
+                                            <div class="table-responsive" id="content">
                                                 <!-- THE MESSAGES -->
                                                 <table class="table table-mailbox">
                                                     <th>
-                                                    <td class="name">Email</td>
-                                                    <td class="name">Subject</td>
-                                                    <td class="time">Date</td>
+                                                        <td class="name">Email</td>
+                                                        <td class="name">Subject</td>
+                                                        <td class="time">Date</td>
                                                     </th>
                                                     <s:iterator var="m" value="mails">
                                                         <tr>
@@ -363,7 +363,21 @@
 
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
-
+        <!-- Ajax call for search function -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+               $("#btn").click(function(){
+                  $.ajax({
+                     url:'searchInbox.action?action=sent&search='+$("#search").val(),
+                     dataType: 'html',
+                     success:function(result){
+                         $("#content").html(result);
+                     }
+                  });
+               }); 
+            });
+        </script>
     </body>
 </html>
 

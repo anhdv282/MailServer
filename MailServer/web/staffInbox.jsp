@@ -363,7 +363,7 @@
             $(document).ready(function(){
                $("#btn").click(function(){
                   $.ajax({
-                     url:'searchInbox.action?search='+$("#search").val(),
+                     url:'searchInbox.action?action=inbox&search='+$("#search").val(),
                      dataType: 'html',
                      success:function(result){
                          $("#content").html(result);
