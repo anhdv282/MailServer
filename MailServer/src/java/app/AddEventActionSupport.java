@@ -65,5 +65,12 @@ public class AddEventActionSupport extends ActionSupport {
         }
         return "fail";
     }
+
+    @Override
+    public void validate() {
+        if(getTitle().length()==0){
+            addFieldError("title", "title required");
+        }
+    }
     
 }

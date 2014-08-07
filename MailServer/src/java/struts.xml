@@ -64,6 +64,7 @@
         </action>
         <action name="addEvent" class="app.AddEventActionSupport">
             <result name="success">admin.jsp</result>
+            <result name="input">adminAddEvent.jsp</result>
             <result name="fail">404.jsp</result>
         </action>
         <action name="updateEvent" class="app.UpdateEventActionSupport">

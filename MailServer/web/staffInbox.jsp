@@ -180,7 +180,7 @@
                                                 <table id="example1" class="table table-bordered table-striped">
                                                     <thead>
                                                         <tr>
-                                                            <th class="name">Email</th>
+                                                            <th class="name">From</th>
                                                             <th class="name">Subject</th>
                                                             <th class="time">Date</th>
                                                         </tr>

@@ -178,6 +178,7 @@
                                 <div class="form-group">
                                     <label>Title</label>                                            
                                     <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="title"/>
+                                    <s:fielderror fieldName="title" cssStyle="color:red;list-stype-type:none;"/>
                                 </div>
                                 <div class="form-group">
                                     <label>Author</label>

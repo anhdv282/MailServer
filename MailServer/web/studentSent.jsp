@@ -186,32 +186,31 @@
 
                                             <div class="box-body table-responsive">
                                                 <!-- THE MESSAGES -->
-                                                <table class="table table-mailbox">
-                                                    <th>
-                                                    <td class="name">Email</td>
-                                                    <td class="name">Subject</td>
-                                                    <td class="time">Date</td>
-                                                    </th>
+                                                <table id="example1" class="table table-bordered table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="name">To</th>
+                                                            <th class="name">Subject</th>
+                                                            <th class="time">Date</th>
+                                                        </tr>
+                                                    
+                                                    </thead>
+                                                    <tbody>
                                                     <s:iterator var="m" value="mails">
                                                         <tr>
-                                                            <td class="small-col"><input type="checkbox" /></td>
+                                                            
                                                             <td class="name"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.sender"/></a></td>
                                                             <td class="subject"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
                                                             <td class="time"><s:property value="#m.date"/></td>
                                                         </tr>
                                                     </s:iterator>
+                                                    </tbody>
                                                 </table>
                                             </div><!-- /.table-responsive -->
                                         </div><!-- /.col (RIGHT) -->
                                     </div><!-- /.row -->
                                 </div><!-- /.box-body -->
-                                <div class="box-footer clearfix">
-                                    <div class="pull-right">
-                                        <small>Showing 1-12/1,240</small>
-                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-left"></i></button>
-                                        <button class="btn btn-xs btn-primary"><i class="fa fa-caret-right"></i></button>
-                                    </div>
-                                </div><!-- box-footer -->
+                                
                             </div><!-- /.box -->
                         </div><!-- /.col (MAIN) -->
                     </div>
