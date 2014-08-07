@@ -22,7 +22,9 @@
         <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-
+        <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css"/>
+        <link href="css/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/bootstrap-timepicker.mic.js" type="text/javascript"></script>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -188,7 +190,12 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Dob</label>
-                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="dob"/>
+                                            <div class='input-group date' id='datetimepicker5' data-date-format="YYYY/MM/DD">
+                                                <%--<s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="dob"/>--%>
+                                                <input type='text' class="form-control" />
+                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                                                </span>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Photo</label>
@@ -219,7 +226,13 @@
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
         <!-- page script -->
-        
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker5').datetimepicker({
+                    pickTime: false
+                });
+            });
+        </script>
 
     </body>
 </html>
