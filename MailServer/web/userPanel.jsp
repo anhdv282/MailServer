@@ -62,12 +62,12 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <!--<s:if test='#session.User.accType.equalsIgnoreCase("staff")'>
-                                        <a href="<s:url action="viewStaffById"><s:param name="id" value=""/></s:url>" class="btn btn-default btn-flat">Profile</a>
+                                    <s:if test='#session.User.accType.equalsIgnoreCase("staff")'>
+                                        <a href="<s:url action="viewStaffById"/>" class="btn btn-default btn-flat">Profile</a>
                                     </s:if>
                                     <s:elseif test='#session.User.accType.equalsIgnoreCase("student")'>
-                                        <a href="<s:url action="viewStudentById"><s:param name="id" value=""/></s:url>" class="btn btn-default btn-flat">Profile</a>
-                                    </s:elseif> -->
+                                        <a href="<s:url action="viewStudentById"/>" class="btn btn-default btn-flat">Profile</a>
+                                    </s:elseif>
                                 </div>
                                 <div class="pull-right">
                                     <a href="<s:url action="Logout"/>" class="btn btn-default btn-flat">Sign out</a>
