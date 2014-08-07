@@ -164,7 +164,7 @@
                 <section class="content">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Students of C1208G</h3>
+                            <h3 class="box-title">Students of <s:property value="course.courseName"/></h3>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
@@ -178,7 +178,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <s:iterator var="c" value="lst">
+                                   <s:iterator var="c" value="course.students">
                                     <tr>
                                         <td><a href="<s:url action="viewStudentById"><s:param name="id" value="#c.id"/></s:url>"><s:property value="#c.name"/></a></td>
                                         <td><s:property value="#c.emailId"/></td>

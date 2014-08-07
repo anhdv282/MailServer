@@ -236,7 +236,7 @@
                     <!-- Small boxes (Stat box) -->
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Courses</h3>
+                            <h3 class="box-title">Courses <s:property value="course.courseName"/></h3>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
@@ -250,7 +250,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <s:iterator var="c" value="lst">
+                                   <s:iterator var="c" value="course.students">
                                     <tr>
                                         <td><s:property value="#c.name"/></td>
                                         <td><s:property value="#c.emailId"/></td>
@@ -305,7 +305,20 @@
         
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
-
+        
+        <script type="text/javascript">
+            $(function() {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+            });
+        </script>
     </body>
 </html>
 
