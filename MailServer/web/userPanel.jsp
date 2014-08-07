@@ -35,10 +35,26 @@
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header bg-light-blue">
-                                <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                <s:if test='#session.User.accType.equalsIgnoreCase("staff")'>
+                                    <img src="img/avatar04.png" class="img-circle" alt="User Image" />
+                                </s:if>
+                                <s:elseif test='#session.User.accType.equalsIgnoreCase("student")'>
+                                    <img src="img/avatar.png" class="img-circle" alt="User Image" />
+                                </s:elseif>
+                                <s:else>
+                                    <img src="img/avatar3.png" class="img-circle" alt="User Image" />
+                                </s:else>
                                 <p>
                                     <%=session.getAttribute("User").toString()%>
-                                    <small>Administrator</small>
+                                    <s:if test='#session.User.accType.equalsIgnoreCase("staff")'>
+                                        <small>Staff</small>
+                                    </s:if>
+                                    <s:elseif test='#session.User.accType.equalsIgnoreCase("student")'>
+                                        <small>Student</small>
+                                    </s:elseif>
+                                    <s:else>
+                                        <small>Administrator</small>
+                                    </s:else>
                                 </p>
                             </li>
                             <!-- Menu Body -->
