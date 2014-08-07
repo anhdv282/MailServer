@@ -22,9 +22,7 @@
         <link href="css/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="css/AdminLTE.css" rel="stylesheet" type="text/css" />
-        <link href="css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css"/>
-        <link href="css/timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"/>
-        <script src="js/bootstrap-timepicker.mic.js" type="text/javascript"></script>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -179,27 +177,27 @@
                                         <div class="form-group">
                                             <label>Email</label>                                            
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="emailId"/>
+                                            <s:fielderror fieldName="emailId" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Name</label>
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="name"/>
+                                            <s:fielderror fieldName="name" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Address</label>
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="address"/>
+                                            <s:fielderror fieldName="address" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Dob</label>
-                                            <div class='input-group date' id='datetimepicker5' data-date-format="YYYY/MM/DD">
-                                                <%--<s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="dob"/>--%>
-                                                <input type='text' class="form-control" />
-                                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
-                                                </span>
-                                            </div>
+                                            <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="dob"/>
+                                            <s:fielderror fieldName="dob" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="form-group">
                                             <label>Photo</label>
                                             <s:textfield cssClass="form-control" placeholder="Enter ..." type="text" name="photo"/>
+                                            <s:fielderror fieldName="photo" cssStyle="color:red;list-style-type:none;"/>
                                         </div>
                                         <div class="box-footer">
                                             
@@ -226,13 +224,7 @@
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
         <!-- page script -->
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker5').datetimepicker({
-                    pickTime: false
-                });
-            });
-        </script>
+        
 
     </body>
 </html>

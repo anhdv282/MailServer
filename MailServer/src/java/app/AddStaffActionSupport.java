@@ -6,9 +6,11 @@
 
 package app;
 
+import DAO.AccountDAO;
 import DAO.StaffDAO;
 import com.opensymphony.xwork2.ActionSupport;
 import entities.Staff;
+import util.Validator;
 
 /**
  *
@@ -76,6 +78,26 @@ public class AddStaffActionSupport extends ActionSupport {
             return "success";
         }
         return "fail";
+    }
+    
+    @Override
+    public void validate() {
+        if (getEmailId().length() == 0) {
+            addFieldError("emailId", "Email is required!");
+        } else if (!new Validator().checkEmail(getEmailId())) {
+            addFieldError("emailId", "Invalid Email!");
+        } else if (new AccountDAO().checkMail(getEmailId())) {
+            addFieldError("emailId", "Email Used!");
+        }
+        if (getName().length() == 0) {
+            addFieldError("name", "Name is required!");
+        }
+        if (getAddress().length() == 0) {
+            addFieldError("address", "Address is required!");
+        }
+        if (getDob().length() == 0) {
+            addFieldError("dob", "Birthday is required!");
+        }
     }
     
 }

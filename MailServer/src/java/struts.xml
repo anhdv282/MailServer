@@ -91,6 +91,7 @@
         </action>
         <action name="addStudent" class="app.AddStudentActionSupport">
             <result name="success" type="redirectAction">viewStudent</result>
+            <result name="input">adminAddStudent.jsp</result>
         </action>
         <action name="addStaff" class="app.AddStaffActionSupport">
             <result name="success" type="redirectAction">viewStaff</result>
