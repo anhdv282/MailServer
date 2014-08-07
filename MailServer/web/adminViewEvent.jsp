@@ -179,6 +179,7 @@
                                         <th>Author</th>
                                         <th>Photo</th>
                                         <th>Date</th>
+                                        <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -188,6 +189,7 @@
                                         <td><s:property value="#e.author"/></td>
                                         <td><s:property value="#e.photo"/></td>
                                         <td><s:property value="#e.date"/></td>
+                                        <td><a href="<s:url action="deleteEvent"><s:param name="id" value="#e.eventId"/></s:url>">Delete</a></td>
                                     </tr>
                                     </s:iterator>
                                 </tbody>

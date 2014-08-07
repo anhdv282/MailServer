@@ -262,6 +262,7 @@ create proc LoadEvents
 as
 select E.eventId, E.title, E.author, E.content, E.photo, E.created
 from tblEvent as E
+where E.status = 0
 order by created desc
 
 go
@@ -300,11 +301,12 @@ set title = @title,
 where eventId = @eventId
 
 go
---ongoing
+--ok
 create proc DeleteEvent
 @eventId int
 as
-delete tblEvent
+update tblEvent
+set [status] = 1
 where eventId = @eventId
 ----
 go
@@ -440,6 +442,7 @@ create proc GetAllStudent
 as
 select S.studentId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStudent as S
+where S.status = 1
 order by S.created desc
 
 go
@@ -466,6 +469,14 @@ set name = @name,
 	[address] = @address,
 	dob = @dob,
 	photo = @photo
+where emailId = @emailId
+
+go
+create proc DeleteStudent
+@emailId nvarchar(100)
+as
+update tblStudent
+set status = 0
 where emailId = @emailId
 
 go
@@ -504,6 +515,7 @@ create proc GetAllStaff
 as
 select S.staffId,S.emailId,S.name,S.[address],S.dob,S.photo,S.created,S.[status]
 from tblStaff as S
+where S.status = 1
 order by S.created desc
 
 go
@@ -547,6 +559,14 @@ set name = @name,
 	[address] = @address,
 	dob = @dob,
 	photo = @photo
+where emailId = @emailId
+
+go
+create proc DeleteStaff
+@emailId nvarchar(100)
+as
+update tblStaff
+set status = 0
 where emailId = @emailId
 
 go

@@ -25,6 +25,9 @@
         <action name="updateStudent" class="app.UpdateStudentActionSupport">
             <result name="student">student.jsp</result>
         </action>
+        <action name="deleteStudent" class="app.DeleteStudentActionSupport">
+            <result name="success" type="redirectAction">viewStudent</result>
+        </action>
         <action name="viewStaff" class="app.ViewStaffActionSupport">
             <result name="success">eventStaff.jsp</result>
             <result name="admin">adminViewStaff.jsp</result>
@@ -35,6 +38,9 @@
         </action>
         <action name="updateStaff" class="app.UpdateStaffActionSupport">
             <result name="staff">staff.jsp</result>
+        </action>
+        <action name="deleteStaff" class="app.DeleteStaffActionSupport">
+            <result name="success" type="redirectAction">viewStaff</result>
         </action>
         <action name="viewEvent" class="app.ViewEventActionSupport">
             <result name="success">event.jsp</result>
@@ -56,11 +62,14 @@
             <result name="student" type="redirectAction">viewStudentSent</result>
         </action>
         <action name="addEvent" class="app.AddEventActionSupport">
-            <result name="success">home.jsp</result>
+            <result name="success">admin.jsp</result>
             <result name="fail">404.jsp</result>
         </action>
         <action name="updateEvent" class="app.UpdateEventActionSupport">
             <result name="success">admin.jsp</result>
+        </action>
+        <action name="deleteEvent" class="app.DeleteEventActionSupport">
+            <result name="success" type="redirectAction">viewEvent</result>
         </action>
         <action name="viewStaffInbox" class="app.ViewInboxActionSupport">
             <result name="success">staffInbox.jsp</result>

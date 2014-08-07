@@ -121,6 +121,20 @@ public class StaffDAO {
         return false;
     }
     
+    public boolean deleteStaff(Staff s){
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call DeleteStaff(?)}");
+            stm.setString(1, s.getEmailId());
+            stm.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     public boolean addStaff(Staff s){
         try {
             Connection conn = util.getConnection();

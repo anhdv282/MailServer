@@ -91,7 +91,7 @@ public class EventDAO {
     public boolean deleteEvent(Event event) {
         try {
             Connection conn = util.getConnection();
-            CallableStatement stm = conn.prepareCall("{call DeleteEvents(?)}");
+            CallableStatement stm = conn.prepareCall("{call DeleteEvent(?)}");
             stm.setInt(1, event.getEventId());
             stm.executeUpdate();
             conn.close();

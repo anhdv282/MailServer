@@ -121,6 +121,20 @@ public class StudentDAO {
         return false;
     }
     
+    public boolean deleteStudent(Student s){
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call DeleteStudent(?)}");
+            stm.setString(1, s.getEmailId());
+            stm.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     public boolean addStudent(Student s){
         try {
             Connection conn = util.getConnection();

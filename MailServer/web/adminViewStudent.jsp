@@ -183,6 +183,7 @@
                                         <th>Address</th>
                                         <th>Photo</th>
                                         <th>DOB</th>
+                                        <th>Option</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -193,6 +194,7 @@
                                         <td><s:property value="#c.address"/></td>
                                         <td><s:property value="#c.photo"/></td>
                                         <td><s:property value="#c.dob"/></td>
+                                        <td><a href="<s:url action="deleteStudent"><s:param name="id" value="#c.id"/></s:url>">Delete</a></td>
                                     </tr>
                                     </s:iterator>
                                 </tbody>
