@@ -75,4 +75,16 @@ public class UpdateStaffActionSupport extends ActionSupport {
         return "fail";
     }
     
+    @Override
+    public void validate() {
+        if (getName().length() == 0) {
+            addFieldError("name", "Name is required!");
+        }
+        if (getAddress().length() == 0) {
+            addFieldError("address", "Address is required!");
+        }
+        if (getDob().length() == 0) {
+            addFieldError("dob", "Birthday is required!");
+        }
+    }
 }

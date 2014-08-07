@@ -176,15 +176,18 @@
                             <div class="callout callout-info">
                                 <h4>Name : <s:property value="#s.name"/></h4>
                                 <p><s:textfield type="text" name="name" cssClass="form-control" placeholder="Name"/></p>
+                                <s:fielderror fieldName="name" cssStyle="color:red;list-style-type:none;"/>
                             </div>
                             
                             <div class="callout callout-info">
                                 <h4>Address : <s:property value="#s.address"/></h4>
                                 <p><s:textfield type="text" name="address" cssClass="form-control" placeholder="Address"/></p>
+                                <s:fielderror fieldName="address" cssStyle="color:red;list-style-type:none;"/>
                             </div>
                             <div class="callout callout-info">
                                 <h4>Dob : <s:property value="#s.dob"/></h4>
                                 <p><s:textfield type="text" name="dob" cssClass="form-control" placeholder="Dob"/></p>
+                                <s:fielderror fieldName="dob" cssStyle="color:red;list-style-type:none;"/>
                             </div>
                             <div class="callout callout-info">
                                 <h4>Photo</h4>

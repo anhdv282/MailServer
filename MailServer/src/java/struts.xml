@@ -25,6 +25,7 @@
         </action>
         <action name="updateStudent" class="app.UpdateStudentActionSupport">
             <result name="student">student.jsp</result>
+            <result name="input">studentProfile.jsp</result>
         </action>
         <action name="deleteStudent" class="app.DeleteStudentActionSupport">
             <result name="success" type="redirectAction">viewStudent</result>
@@ -39,6 +40,7 @@
         </action>
         <action name="updateStaff" class="app.UpdateStaffActionSupport">
             <result name="staff">staff.jsp</result>
+            <result name="input">staffProfile.jsp</result>
         </action>
         <action name="deleteStaff" class="app.DeleteStaffActionSupport">
             <result name="success" type="redirectAction">viewStaff</result>
@@ -61,6 +63,7 @@
             <result name="fail">404.jsp</result>
             <result name="staff" type="redirectAction">viewStaffSent</result>
             <result name="student" type="redirectAction">viewStudentSent</result>
+            <result name="input">${url}</result>
         </action>
         <action name="addEvent" class="app.AddEventActionSupport">
             <result name="success">admin.jsp</result>

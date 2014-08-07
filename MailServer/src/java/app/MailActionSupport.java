@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import entities.Account;
 import entities.Mail;
 import java.util.Map;
+import util.Validator;
 
 /**
  *
@@ -19,9 +20,18 @@ import java.util.Map;
  */
 public class MailActionSupport extends ActionSupport {
     
+    String url;
     String[] receivers;
     String subject;
     String content;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String[] getReceivers() {
         return receivers;
@@ -79,7 +89,14 @@ public class MailActionSupport extends ActionSupport {
     @Override
     public void validate() {
         if (getReceivers().length == 0) {
-            addFieldError("receiver", getText("receiver required"));
+            addFieldError("receivers", "receiver required!");
+        } else {
+            for (String mail : receivers) {
+                if (!new Validator().checkEmail(mail)) {
+                    addFieldError("receivers", "Invalid Email!");
+                    break;
+                }
+            }
         }
     }
 }

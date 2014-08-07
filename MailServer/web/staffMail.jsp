@@ -176,10 +176,11 @@
                             </div><!-- /. tools -->
                         </div>
                         <div class="box-body">
-                            <s:form action="SendMail" method="post" theme="simple">
+                            <s:form action="SendMail?url=staffMail.jsp" method="post" theme="simple">
                                 <div class="form-group">
 <!--                                    <input type="email" class="form-control" name="emailto" placeholder="Email to:" />-->
                                     <s:textfield cssClass="form-control" name="receivers" type="text" placeholder="Email to:"/>
+                                    <s:fielderror fieldName="receivers" cssStyle="color:red;list-style-type:none;"/>
                                 </div>
                                 <div class="form-group">
 <!--                                    <input type="text" class="form-control" name="subject" placeholder="Subject" />-->
