@@ -12,6 +12,7 @@
             <result name="student" type="redirect">student.jsp</result>
             <result name="changePass" type="redirect">changePass.jsp</result>
             <result name="fail">404.jsp</result>
+            <result name="input">login.jsp</result>
         </action>
         <action name="viewStudent" class="app.ViewStudentActionSupport">
             <result name="success"></result>

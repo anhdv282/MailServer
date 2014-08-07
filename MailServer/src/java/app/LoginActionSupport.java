@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import entities.Account;
 import java.util.Map;
+import util.Validator;
 /**
  *
  * @author DANG
@@ -59,10 +60,20 @@ public class LoginActionSupport extends ActionSupport {
     @Override
     public void validate() {
         if(getUser().length() == 0){
-            addFieldError("username", getText("email.required"));
+            addFieldError("user", "Email is required!");
+        } else if (!new Validator().checkEmail(getUser())){
+            addFieldError("user", "Invalid Email!");
         }
-        else if(getPass().length() == 0){
-            addFieldError("password", getText("password.required"));
+        if(getPass().length() == 0){
+            addFieldError("pass", "Password is required!");
+        }
+        if(getUser().length() != 0 && getPass().length() != 0) {
+            Account account = new Account();
+            account.setEmail(user);
+            account.setPass(pass);
+            if(!new LoginDAO().checkLogin(account)) {
+                addFieldError("pass", "Wrong email or password!");
+            }
         }
     }
     
