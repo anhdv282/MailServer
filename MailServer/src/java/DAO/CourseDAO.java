@@ -43,19 +43,22 @@ public class CourseDAO {
         return null;
     }
     
-    public Course getStudentsByCourse(int id){
+    public Course getCourseById(int id){
+        Course course = new Course();
         try {
             Connection con = util.getConnection();
-            CallableStatement stm = con.prepareCall("{call GetStudentsByCourse(?)}");
+            CallableStatement stm = con.prepareCall("{call GetCourseById(?)}");
             stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
-                Course course = new Course();
-                
+            while (rs.next()){
+                course.setCourseId(rs.getInt(1));
+                course.setCourseName(rs.getString(2));
+                course.setTeacher(new StaffDAO().getStaffById(rs.getInt(3)));
+                course.getStudents().add(new StudentDAO().studentById(rs.getInt(4)));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CourseDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+        return course;
     }
 }

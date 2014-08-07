@@ -6,6 +6,9 @@
 
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author DANG
@@ -13,8 +16,23 @@ package entities;
 public class Course {
     private int courseId;
     private String courseName;
-    private int teacherId;
+    private Staff teacher;
+    private List<Student> students;
 
+    public Course() {
+        this.courseId = -1;
+        this.courseName = "";
+        this.teacher = new Staff();
+        this.students = new ArrayList<>();
+    }
+
+    public Course(int courseId, String courseName, Staff teacher, List<Student> students) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.teacher = teacher;
+        this.students = students;
+    }
+    
     public int getCourseId() {
         return courseId;
     }
@@ -31,23 +49,20 @@ public class Course {
         this.courseName = courseName;
     }
 
-    public int getTeacherId() {
-        return teacherId;
+    public Staff getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(Staff teacher) {
+        this.teacher = teacher;
     }
 
-
-    public Course(int courseId, String courseName, int teacherId) {
-        this.courseId = courseId;
-        this.courseName = courseName;
-        this.teacherId = teacherId;
-
+    public List<Student> getStudents() {
+        return students;
     }
 
-    public Course() {
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
     
 }

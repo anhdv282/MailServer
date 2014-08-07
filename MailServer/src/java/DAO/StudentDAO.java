@@ -21,8 +21,7 @@ import util.DbUtil;
  * @author DANG
  */
 public class StudentDAO {
-    private int pSize = 6;
-    private int total;
+    
     private DbUtil util = new DbUtil();
 
     public List<Student> loadAllStudent() {
@@ -122,24 +121,6 @@ public class StudentDAO {
         return false;
     }
     
-    public List<Student> loadStudentByCourse(int id){
-        List<Student> lst = new ArrayList<Student>();
-        try {
-            Connection conn = util.getConnection();
-            CallableStatement stm = conn.prepareCall("{call GetStudentsByCourse(?)}");
-            stm.setInt(1, id);
-            ResultSet rs = stm.executeQuery();
-            while(rs.next()){
-                Student s = studentById(rs.getInt(3));
-                lst.add(s);    
-            }
-            conn.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return lst;
-    }
-    
     public boolean addStudent(Student s){
         try {
             Connection conn = util.getConnection();
@@ -157,13 +138,4 @@ public class StudentDAO {
         }
         return false;
     }
-    
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-    
 }

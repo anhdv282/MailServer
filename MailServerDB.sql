@@ -570,19 +570,20 @@ from tblCourse as C join tblCourseStudent as CS
 on C.courseId = CS.courseId
 
 go
---ok
+
 create proc GetCourse
 as
 select C.courseName,C.courseId
 from tblCourse as C
 
---going
 go
-create proc GetStudentsByCourse
+
+create proc GetCourseById
 @courseId int
 as
-select C.courseName, C.teacherId, C.studentId
+select C.courseId ,C.courseName, C.teacherId, C.studentId
 from Course as C
-where C.courseId = @courseId 
+where C.courseId = @courseId
 
+go
 select * from tblStudent

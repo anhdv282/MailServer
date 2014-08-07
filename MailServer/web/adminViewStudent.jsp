@@ -180,7 +180,7 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
-                                        <th>Adddress</th>
+                                        <th>Address</th>
                                         <th>Photo</th>
                                         <th>DOB</th>
                                     </tr>
