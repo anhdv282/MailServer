@@ -100,5 +100,14 @@
         <action name="searchInbox" class="app.SearchMailActionSupport">
             <result name="success">mailResult.jsp</result>
         </action>
+        <action name="viewFeedback" class="app.ViewFeedbackActionSupport">
+            <result name="success">adminViewFeedBack.jsp</result>
+        </action>
+        <action name="feedbackDetail" class="app.ViewFeedbackDetailActionSupport">
+            <result name="success">adminViewFeedBackDetail.jsp</result>
+        </action>
+        <action name="addFeedback" class="app.AddFeedbackActionSupport">
+            <result name="success">feedbackSuccess.jsp</result>
+        </action>
     </package>
 </struts>

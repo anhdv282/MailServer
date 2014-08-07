@@ -141,6 +141,12 @@
                                 <span>Course</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<s:url action="viewFeedback"/>">
+                                <i class=" glyphicon glyphicon-envelope"></i>
+                                <span>Feedback</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->

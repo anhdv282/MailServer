@@ -1,8 +1,9 @@
 <%-- 
-    Document   : event
-    Created on : Jul 17, 2014, 12:42:03 PM
+    Document   : feedbackSuccess
+    Created on : Aug 7, 2014, 11:34:14 AM
     Author     : DANG
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
@@ -141,70 +142,10 @@
                 <section class="content">
 
                     <!-- Small boxes (Stat box) -->
-                    
-                    <h4 class="page-header">
-                        Welcome to Stark Institute
-                        <div class="box box-solid">
-                            
-                            <div class="box-body">
-                                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                                    <ol class="carousel-indicators">
-                                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                                        <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                                    </ol>
-                                    <div class="carousel-inner">
-                                        <div class="item active">
-                                            <img src="http://placehold.it/1280x400/39CCCC/ffffff&text=Stark+Institute" alt="First slide">
-                                            <div class="carousel-caption">
-                                                Welcome to Stark Institute
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                            <img src="http://placehold.it/1280x400/3c8dbc/ffffff&text=Stark+Institute" alt="Second slide">
-                                            <div class="carousel-caption">
-                                                Welcome to Stark Institute
-                                            </div>
-                                        </div>
-                                        <div class="item">
-                                        <img src="http://placehold.it/1280x400/AA3939/ffffff&text=Stark+Institute" alt="Third slide">
-                                            <div class="carousel-caption">
-                                                Welcome to Stark Institute
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                        <span class="glyphicon glyphicon-chevron-left"></span>
-                                    </a>
-                                    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"></span>
-                                    </a>
-                                </div>
-                            </div><!-- /.box-body -->
-                        </div><!-- /.box -->
-                    </h4>
-                    <!-- Solid boxes -->
-                    <div class="row">
-                        <s:iterator var="p" value="lst">
+                    <div class="box box-warning">
                         
-                        <div class="col-md-4">
-                            <!-- Danger box -->
-                            <div class="box box-solid box-danger">
-                                <div class="box-header">
-                                    <h3 class="box-title"><s:property value="#p.title"/></h3>
-                                    
-                                </div>
-                                <div class="box-body">
-                                    Author: <code><s:property value="#p.author"/></code>
-                                    <p>
-                                        <a href="<s:url action="eventDetail"><s:param name="id" value="#p.eventId"/></s:url>"><s:property value="#p.content"/></a>
-                                    </p>
-                                    <s:property value="#p.date"/>
-                                </div><!-- /.box-body -->
-                            </div><!-- /.box -->
-                        </div><!-- /.col -->
-                        </s:iterator>
-                    </div>
+                        Send Success
+                    </div><!-- /.box -->
                     
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
@@ -249,3 +190,5 @@
 
     </body>
 </html>
+
+

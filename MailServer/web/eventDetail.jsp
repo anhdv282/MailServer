@@ -113,7 +113,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="../MailServer/contactUs.jsp">
                                 <i class="glyphicon glyphicon-comment"></i> <span>Contact us</span>                                
                             </a>
                         </li>

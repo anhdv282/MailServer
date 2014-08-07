@@ -143,6 +143,12 @@
                                 <span>Course</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="<s:url action="viewFeedback"/>">
+                                <i class=" glyphicon glyphicon-envelope"></i>
+                                <span>Feedback</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->
@@ -164,7 +170,7 @@
                 <section class="content">
                     <div class="box box-warning">
                         <div class="box-header">
-                            <h3 class="box-title">General Elements</h3>
+                            <h3 class="box-title">Event</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body">
                             <s:form role="form" action="addEvent" method="POST" theme="simple">

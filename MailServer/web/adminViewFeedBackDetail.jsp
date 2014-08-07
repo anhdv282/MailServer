@@ -1,7 +1,6 @@
-
 <%-- 
-    Document   : eventAdd
-    Created on : Jul 21, 2014, 10:59:30 AM
+    Document   : adminViewFeedBackDetail
+    Created on : Aug 7, 2014, 11:19:41 AM
     Author     : DANG
 --%>
 
@@ -132,13 +131,13 @@
                                 <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="<s:url action="viewStudent"/>">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="<s:url action="viewCourse"/>">
                                 <i class=" glyphicon glyphicon-book"></i>
                                 <span>Course</span>
@@ -159,45 +158,41 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        View Students By Course
+                        Feedback
                         
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> View Students By Course</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> Feedback</a></li>
                         
                     </ol>
                 </section>
                 <section class="content">
-                    <div class="box">
+                    <s:set var="f" value="feedback"/>
+                    <div class="box box-info">
                         <div class="box-header">
-                            <h3 class="box-title">Students of C1208G</h3>
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <h3 class="box-title">Feedback Detail</h3>
                         </div><!-- /.box-header -->
-                        <div class="box-body table-responsive">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Adddress</th>
-                                        <th>Photo</th>
-                                        <th>DOB</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   <s:iterator var="c" value="lst">
-                                    <tr>
-                                        <td><a href="<s:url action="viewStudentById"><s:param name="id" value="#c.id"/></s:url>"><s:property value="#c.name"/></a></td>
-                                        <td><s:property value="#c.emailId"/></td>
-                                        <td><s:property value="#c.address"/></td>
-                                        <td><s:property value="#c.photo"/></td>
-                                        <td><s:property value="#c.dob"/></td>
-                                    </tr>
-                                    </s:iterator>
-                                </tbody>
-                            </table>
+                        <div class="box-body">
+                            
+                            <div class="callout callout-info">
+                                <h4>Name</h4>
+                                <p><s:property value="#f.email"/></p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>Title</h4>
+                                <p><s:property value="#f.title"/></p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>Content</h4>
+                                <p><s:property value="#f.content"/></p>
+                            </div>
+                            <div class="callout callout-info">
+                                <h4>Date</h4>
+                                <p><s:property value="#f.date"/></p>
+                            </div>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
-                    
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -215,20 +210,9 @@
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
         <!-- page script -->
-        <script type="text/javascript">
-            $(function() {
-                $("#example1").dataTable();
-                $('#example2').dataTable({
-                    "bPaginate": true,
-                    "bLengthChange": false,
-                    "bFilter": false,
-                    "bSort": true,
-                    "bInfo": true,
-                    "bAutoWidth": false
-                });
-            });
-        </script>
+        
 
     </body>
 </html>
+
 

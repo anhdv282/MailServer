@@ -42,7 +42,8 @@ public class StudentDAO {
                     s.setCreated(rs.getString(7));
                     s.setStatus(rs.getInt(8));
                     lst.add(s);
-            }             
+            }
+            conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

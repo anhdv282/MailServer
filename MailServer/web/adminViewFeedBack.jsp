@@ -1,7 +1,6 @@
-
 <%-- 
-    Document   : eventAdd
-    Created on : Jul 21, 2014, 10:59:30 AM
+    Document   : adminViewFeedBack
+    Created on : Aug 7, 2014, 11:04:36 AM
     Author     : DANG
 --%>
 
@@ -54,7 +53,6 @@
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
-                                
                             </a>
                             
                         </li>
@@ -122,7 +120,7 @@
                     <!-- /.search form -->
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu">
-                        <li >
+                        <li class="active">
                             <a href="../MailServer/admin.jsp">
                                 <i class="glyphicon glyphicon-calendar"></i><span>Events</span>
                             </a>
@@ -132,13 +130,13 @@
                                 <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
-                        <li >
+                        <li>
                             <a href="<s:url action="viewStudent"/>">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="<s:url action="viewCourse"/>">
                                 <i class=" glyphicon glyphicon-book"></i>
                                 <span>Course</span>
@@ -154,46 +152,44 @@
                 </section>
                 <!-- /.sidebar -->
             </aside>
+
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        View Students By Course
+                        View Feedback
                         
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#"><i class="fa fa-dashboard"></i> View Students By Course</a></li>
+                        <li><a href="#"><i class="fa fa-dashboard"></i> View Feedback</a></li>
                         
                     </ol>
                 </section>
                 <section class="content">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Students of C1208G</h3>
+                            <h3 class="box-title">Feedback</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Adddress</th>
-                                        <th>Photo</th>
-                                        <th>DOB</th>
+                                        <th>Title</th>
+                                        <th>Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <s:iterator var="c" value="lst">
+                                    <s:iterator var="f" value="lst">
                                     <tr>
-                                        <td><a href="<s:url action="viewStudentById"><s:param name="id" value="#c.id"/></s:url>"><s:property value="#c.name"/></a></td>
-                                        <td><s:property value="#c.emailId"/></td>
-                                        <td><s:property value="#c.address"/></td>
-                                        <td><s:property value="#c.photo"/></td>
-                                        <td><s:property value="#c.dob"/></td>
+                                        <td><a href="<s:url action="feedbackDetail"><s:param name="id" value="#f.feedId"/></s:url>"><s:property value="#f.email"/></a></td>
+                                        <td><s:property value="#f.title"/></td>
+                                        <td><s:property value="#f.date"/></td>
                                     </tr>
                                     </s:iterator>
                                 </tbody>
+
                             </table>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
