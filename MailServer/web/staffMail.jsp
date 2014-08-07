@@ -55,9 +55,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <div class="navbar-right">
+<!--                <div class="navbar-right">
                     <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
+                         Messages: style can be found in dropdown.less
                         <li class="dropdown messages-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-envelope"></i>
@@ -65,18 +65,18 @@
                             </a>
                             
                         </li>
-                        <!-- Notifications: style can be found in dropdown.less -->
+                         Notifications: style can be found in dropdown.less 
                         
-                        <!-- Tasks: style can be found in dropdown.less -->
+                         Tasks: style can be found in dropdown.less 
                         
-                        <!-- User Account: style can be found in dropdown.less -->
+                         User Account: style can be found in dropdown.less 
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
                                 <span><%=session.getAttribute("User").toString()%><i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <!-- User image -->
+                                 User image 
                                 <li class="user-header bg-light-blue">
                                     <img src="img/avatar04.png" class="img-circle" alt="User Image" />
                                     <p>
@@ -84,9 +84,9 @@
                                         <small>Staff</small>
                                     </p>
                                 </li>
-                                <!-- Menu Body -->
+                                 Menu Body 
                                 
-                                <!-- Menu Footer-->
+                                 Menu Footer
                                 <li class="user-footer">
                                     <div class="pull-left">
                                         <a href="<s:url action="viewStaffById"/>" class="btn btn-default btn-flat">Profile</a>
@@ -98,7 +98,8 @@
                             </ul>
                         </li>
                     </ul>
-                </div>
+                </div>-->
+                <s:include value="userPanel.jsp"/>
             </nav>
         </header>
         <div class="wrapper row-offcanvas row-offcanvas-left">
