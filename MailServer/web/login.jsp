@@ -36,10 +36,12 @@
                     <div class="form-group">
 <!--                        <input type="text" name="userid" class="form-control" placeholder="Email"/>-->
                         <s:textfield type="text" name="user" cssClass="form-control" placeholder="Email"/>
+                        <s:fielderror fieldName="user" cssStyle="color:red;list-style-type:none;"/>
                     </div>
                     <div class="form-group">
 <!--                        <input type="password" name="password" class="form-control" placeholder="Password"/>-->
                         <s:password type="password" name="pass" cssClass="form-control" placeholder="Password"/>
+                        <s:fielderror fieldName="pass" cssStyle="color:red;list-style-type:none;"/>
                     </div>          
                     <div class="form-group">
                         <input type="checkbox" name="remember_me"/> Remember me
