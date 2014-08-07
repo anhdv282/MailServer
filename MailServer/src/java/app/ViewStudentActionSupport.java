@@ -21,37 +21,10 @@ import java.util.Map;
  */
 public class ViewStudentActionSupport extends ActionSupport {
     private List<Student> lst;
-    String page;
-    ArrayList<Integer> arr;
-
-    public ArrayList<Integer> getArr() {
-        StudentDAO studentDAO = new StudentDAO();
-        int i = 1;
-        while(i<studentDAO.getTotal()){
-            arr.add(i);
-            i++;
-        }
-        return arr;
-    }
-
-    public void setArr(ArrayList<Integer> arr) {
-        this.arr = arr;
-    }
-    
-    public String getPage() {
-        return page;
-    }
-
-    public void setPage(String page) {
-        this.page = page;
-    }
     
     public List<Student> getLst() {
         StudentDAO studentDAO = new StudentDAO();
-        if(page.isEmpty()){
-            page = "1";
-        }
-        lst = studentDAO.loadAllStudent(page);
+        lst = studentDAO.loadAllStudent();
         return lst;
     }
 

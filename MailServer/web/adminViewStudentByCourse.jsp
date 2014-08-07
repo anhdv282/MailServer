@@ -132,13 +132,13 @@
                                 <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="<s:url action="viewStudent"/>">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="<s:url action="viewCourse"/>">
                                 <i class=" glyphicon glyphicon-book"></i>
                                 <span>Course</span>
@@ -153,7 +153,7 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        View Students
+                        View Students By Course
                         
                     </h1>
                     <ol class="breadcrumb">
@@ -164,7 +164,7 @@
                 <section class="content">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Students</h3>
+                            <h3 class="box-title">Students of C1208G</h3>
                         </div><!-- /.box-header -->
                         <div class="box-body table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
@@ -209,7 +209,19 @@
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
         <!-- page script -->
-        
+        <script type="text/javascript">
+            $(function() {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+            });
+        </script>
 
     </body>
 </html>

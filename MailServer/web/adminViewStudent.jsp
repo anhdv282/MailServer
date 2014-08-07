@@ -189,17 +189,11 @@
                                         <td><s:property value="#c.dob"/></td>
                                     </tr>
                                     </s:iterator>
-                                    
-                                     
                                 </tbody>
                             </table>
-                            Hello
-                            <s:iterator var="i" value="arr">
-                                <a href="<s:url action="viewStudent"><s:param value="#i" name="page"/></s:url>">%{i}</a>
-                            </s:iterator>  
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
-                    <a href="#">Add Student</a>
+                    <a href="../MailServer/adminAddStudent.jsp">Add Student</a>
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -217,7 +211,19 @@
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
         <!-- page script -->
-        
+        <script type="text/javascript">
+            $(function() {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+            });
+        </script>
 
     </body>
 </html>

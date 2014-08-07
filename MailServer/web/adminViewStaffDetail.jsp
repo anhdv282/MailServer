@@ -126,12 +126,12 @@
                                 <i class="glyphicon glyphicon-calendar"></i><span>Events</span>
                             </a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="<s:url action="viewStaff"/>">
                                 <i class="glyphicon glyphicon-user"></i><span>Staffs</span> 
                             </a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="<s:url action="viewStudent"/>">
                                 <i class=" glyphicon glyphicon-globe"></i>
                                 <span>Students</span>

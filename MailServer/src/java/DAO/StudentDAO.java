@@ -25,18 +25,13 @@ public class StudentDAO {
     private int total;
     private DbUtil util = new DbUtil();
 
-    public List<Student> loadAllStudent(String page) {
+    public List<Student> loadAllStudent() {
         List<Student> lst = new ArrayList<Student>();
-        int index = Integer.valueOf(page);
-        int count = 0;
-        int pageTotal = 0;
         try {   
             Connection conn = util.getConnection();
             CallableStatement stm = conn.prepareCall("{call GetAllStudent}");
             ResultSet rs = stm.executeQuery();
             while (rs.next()) {
-                count++;
-                if((count <= index * pSize)&&(count >= ((index - 1)*pSize + 1))){
                     Student s = new Student();
                     s.setId(rs.getInt(1));
                     s.setEmailId(rs.getString(2));
@@ -47,15 +42,7 @@ public class StudentDAO {
                     s.setCreated(rs.getString(7));
                     s.setStatus(rs.getInt(8));
                     lst.add(s);
-                } 
-            }
-            conn.close();
-            if(count%pSize == 0){
-                pageTotal = count / pSize;
-            }else{
-                pageTotal = count / pSize +1;
-            }
-            setTotal(pageTotal);
+            }             
         } catch (SQLException ex) {
             Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -192,7 +192,7 @@
                             </table>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
-                    <a href="#">Add Staff</a>
+                    <a href="../MailServer/adminAddStaff.jsp">Add Staff</a>
                 </section>
             </aside><!-- /.right-side -->
         </div><!-- ./wrapper -->
@@ -210,7 +210,19 @@
         <!-- AdminLTE for demo purposes -->
         <script src="js/AdminLTE/demo.js" type="text/javascript"></script>
         <!-- page script -->
-        
+        <script type="text/javascript">
+            $(function() {
+                $("#example1").dataTable();
+                $('#example2').dataTable({
+                    "bPaginate": true,
+                    "bLengthChange": false,
+                    "bFilter": false,
+                    "bSort": true,
+                    "bInfo": true,
+                    "bAutoWidth": false
+                });
+            });
+        </script>
 
     </body>
 </html>
