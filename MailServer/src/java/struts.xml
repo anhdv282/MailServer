@@ -34,7 +34,7 @@
             <result name="admin">adminViewStaff.jsp</result>
         </action>
         <action name="viewStaffById" class="app.ViewStaffDetailActionSupport">
-            <result name="success">staffProfile.jsp</result>
+            <result name="staff">staffProfile.jsp</result>
             <result name="admin">adminViewStaffDetail.jsp</result>
         </action>
         <action name="updateStaff" class="app.UpdateStaffActionSupport">
