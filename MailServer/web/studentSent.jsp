@@ -45,50 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <div class="navbar-right">
-                    <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <li class="dropdown messages-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-envelope"></i>
-                                
-                            </a>
-                            
-                        </li>
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        
-                        <!-- Tasks: style can be found in dropdown.less -->
-                        
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="glyphicon glyphicon-user"></i>
-                                <span><%=session.getAttribute("User").toString()%><i class="caret"></i></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header bg-light-blue">
-                                    <img src="img/avatar.png" class="img-circle" alt="User Image" />
-                                    <p>
-                                        <%=session.getAttribute("User").toString()%>
-                                        <small>Student</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Body -->
-                                
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="<s:url action="viewStudentById"/>" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="<s:url action="Logout"/>" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+                <s:include value="userPanel.jsp"/>
             </nav>
         </header>
         <div class="wrapper row-offcanvas row-offcanvas-left">
@@ -199,8 +156,14 @@
                                                     <s:iterator var="m" value="mails">
                                                         <tr>
                                                             
-                                                            <td class="name"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.sender"/></a></td>
-                                                            <td class="subject"><a href="<s:url action="viewStudentMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
+                                                            <td class="name"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>">
+                                                                    <s:if test="%{#m.receivers.size <= 1}">
+                                                                        <s:property value="#m.receivers[0]"/>
+                                                                    </s:if>
+                                                                    <s:else>
+                                                                        <s:property value="#m.receivers[0]"/>,(<s:property value="#m.receivers.size - 1"/>)
+                                                                    </s:else></a></td>
+                                                            <td class="subject"><a href="<s:url action="viewMailDetail"><s:param name="id" value="#m.id"/></s:url>"><s:property value="#m.subject"/></a></td>
                                                             <td class="time"><s:property value="#m.date"/></td>
                                                         </tr>
                                                     </s:iterator>
