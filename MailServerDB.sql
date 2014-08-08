@@ -615,4 +615,30 @@ from Course as C
 where C.courseId = @courseId
 
 go
+
+create proc AddCourse
+@courseName nvarchar(100)
+as
+insert tblCourse(courseName) values (@courseName)
+return @@IDENTITY
+
+go
+
+create proc UpdateCourse
+@courseId int,
+@teacherId int
+as
+update tblCourse
+set teacherId = @teacherId
+where courseId = courseId
+
+go
+
+create proc AddStudentToCourse
+@courseId int,
+@studentId int
+as
+insert tblCourseStudent(courseId, studentId) values (@courseId, @studentId)
+
+go
 select * from tblStudent

@@ -7,6 +7,8 @@
 package DAO;
 
 import entities.Course;
+import entities.Staff;
+import entities.Student;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -23,6 +25,7 @@ import util.DbUtil;
  */
 public class CourseDAO {
     private DbUtil util = new DbUtil();
+    
     public List<Course> getCourse(){
         try {
             List<Course> lst = new ArrayList<>();
@@ -60,5 +63,49 @@ public class CourseDAO {
             Logger.getLogger(CourseDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return course;
+    }
+    
+    public boolean addCourse(Course course) {
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call AddCourse(?)}");
+            stm.setString(1, course.getCourseName());
+            stm.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean updateCourseTeacher(Course course) {
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call UpdateCourse(?,?)}");
+            stm.setInt(1, course.getCourseId());
+            stm.setInt(2, course.getTeacher().getId());
+            stm.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public boolean addStudentToCourse(Course course, Student student) {
+        try {
+            Connection conn = util.getConnection();
+            CallableStatement stm = conn.prepareCall("{call AddStudentToCourse(?,?)}");
+            stm.setInt(1, course.getCourseId());
+            stm.setInt(2, student.getId());
+            stm.executeUpdate();
+            conn.close();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 }

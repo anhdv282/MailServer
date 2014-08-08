@@ -167,7 +167,7 @@
                                             <div style="margin-top: 15px;">
                                                 <ul class="nav nav-pills nav-stacked">
                                                     <li class="header">Folders</li>
-                                                    <li><a href="<s:url action="viewStaffInbox"/>"><i class="fa fa-inbox"></i> Inbox ()</a></li>
+                                                    <li><a href="<s:url action="viewStaffInbox"/>"><i class="fa fa-inbox"></i> Inbox</a></li>
                                                     
                                                     <li class="active"><a href="<s:url action="viewStaffSent"/>"><i class="fa fa-mail-forward"></i> Sent</a></li>
                                                     
